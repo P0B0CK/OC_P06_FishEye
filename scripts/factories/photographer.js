@@ -1,3 +1,9 @@
+/**
+ * 
+ * @param {*} data 
+ * @returns 
+ */
+
 function photographerFactory(data) {
     const { name, portrait } = data;
 
@@ -11,7 +17,11 @@ function photographerFactory(data) {
         h2.textContent = name;
         article.appendChild(img);
         article.appendChild(h2);
-        return (article);
+        /*const div = `<article id="photo" class="test"><img src="${picture}"><h2>Autre data test</h2></article>`;
+        const article2 = document.createElement( 'span' );
+        article2.innerHTML = div;
+        return (article2);*/
+        return (article)
     }
     return { name, picture, getUserCardDOM }
 }
