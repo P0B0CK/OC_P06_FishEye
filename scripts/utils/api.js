@@ -4,7 +4,8 @@ export async function getPhotographers() {
     await fetch("../../data/photographers.json")
         .then((res) => res.json())
         .then((data) => photographers = data.photographers)
+        console.log(data);
     return ({
-        .catch(console.log(data))
+        photographers: [...photographers];
     })
 }
