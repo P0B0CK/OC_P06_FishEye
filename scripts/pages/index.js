@@ -1,8 +1,11 @@
+import { photographerFactory } from "../factories/photographer.js";
+import { getPhotographers } from "../utils/api.js";
+
     /**
      * Détails des photographes.
      * @returns 
      */
-    async function getPhotographers() {
+    async function getStaticPhotographers() {
         // Penser à remplacer par les données récupérées dans le json
         const photographers = [
             {
