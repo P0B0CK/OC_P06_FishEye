@@ -5,6 +5,14 @@ body {
     margin: 0;
 }
 
+a{
+    color: #901C1C;
+    text-decoration: none;
+}
+a:visited{
+    color: none;
+}
+
 
 header {
     display: flex;
