@@ -1,4 +1,4 @@
-export function photographHeader() {
+function photographHeader() {
     
     // créer les éléments DIV
     const infoMembers = document.createElement('div');
@@ -30,3 +30,5 @@ export function photographHeader() {
     photographBanner.appendChild(avatarMembers);
         // doit recevoir la photo de profil
 };
+
+export {photographHeader};

@@ -1,6 +1,6 @@
 //Mettre le code JavaScript lié à la page photographer.html
 
-import { getPhotographers } from "../utils/api.js";
+import { getPhotographers } from ".api";
 import { photographHeader } from "../factories/photograph_header.js";
 
 
