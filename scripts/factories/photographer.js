@@ -7,7 +7,7 @@
 export function photographerFactory(data) {
     const { name, portrait, id, city, country, tagline, price } = data;
 
-    const pictureDefault = `assets/photographers/account.png`;
+    //const pictureDefault = `assets/photographers/account.png`;
     
     const picture = `assets/photographers/profiles/${portrait}`;
 
