@@ -1,6 +1,6 @@
-function photographHeader() {
+export function photographHeader() {
     
-    // créer les éléments DIV
+    // crée les éléments DIV
     const infoMembers = document.createElement('div');
     const contactMembers = document.createElement('div');
     const avatarMembers = document.createElement('div');
@@ -30,5 +30,3 @@ function photographHeader() {
     photographBanner.appendChild(avatarMembers);
         // doit recevoir la photo de profil
 };
-
-export {photographHeader};
