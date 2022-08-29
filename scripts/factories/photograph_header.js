@@ -17,16 +17,22 @@ export function photographHeader() {
 
     // sélectionne l'élément photograp-header
     
-    let photographBanner = document.querySelector('.photograph-header');
-    
+    const photographBanner = document.querySelector('.photograph-header');
+    console.log('Je suis ici')
 
     
     //crée un élément enfant
     
     photographBanner.appendChild(infoMembers);
-        // nom + ville + tagline 
+        // nom + ville + tagline
+        infoMembers.innerHTML = `
+            <h2>${name}</h1>
+            <p class="city">${city + ", " + country}</p>
+            <p class="tagline">${tagline}</p>
+            `;
     photographBanner.appendChild(contactMembers);
         // récupération du <button>
     photographBanner.appendChild(avatarMembers);
         // doit recevoir la photo de profil
+    return {infoMembers, contactMembers, avatarMembers};
 };
