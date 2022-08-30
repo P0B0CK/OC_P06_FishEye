@@ -23,7 +23,7 @@ divLogo.setAttribute('class', 'ban-logo');
 aLogo.setAttribute('href', 'index.html');
 aLogo.setAttribute('alt' , 'Fisheye Home Page')
 imgLogo.setAttribute('src' , linkLogo);
-imgLogo.setAttribute('class' , logo);
+imgLogo.setAttribute('class' , 'logo');
 imgLogo.setAttribute('alt' , 'Logo de FishEye');
 //>>>>>>>>>>> SEARCH
 divSearch.setAttribute('class', 'ban-search');
