@@ -8,8 +8,8 @@ export function photographerFactory(data) {
     const { name, portrait, id, city, country, tagline, price } = data;
 
     // Crée un lien Hypertext qui renvoie à la page du photographe grâce à son ID.
-    const linkPage = document.createElement('a');
-        linkPage.setAttribute('href', searchByIdUser);
+    /*const linkPage = document.createElement('a');
+        linkPage.setAttribute('href', searchByIdUser);*/
     
     const picture = `assets/photographers/profiles/${portrait}`;
 
@@ -37,51 +37,33 @@ export function photographerFactory(data) {
     }
 
     function getUserHeaderDOM() {
-           
-    // crée les éléments DIV
+           const photographHeader = document.querySelector('.photograph-header');
+   
             const infoMembers = document.createElement('div');
             const contactMembers = document.createElement('div');
             const avatarMembers = document.createElement('div');
-    //assigne aux éléments un attribut class
+    
             infoMembers.setAttribute('class', 'infoMembers');
             contactMembers.setAttribute('class', 'contactMembers');
             avatarMembers.setAttribute('class', 'avatarMembers');
-    // sélectionne l'élément photograp-header
-            const photographBanner = document.querySelector('.photograph-header');
-            console.log('JE SUIS ICI')
-    //crée un élément enfant
+            
+            photographHeader.appendChild(infoMembers);
             infoMembers.innerHTML = `
                     <h2>${name}</h2>
                     <p class="city">${city + ", " + country}</p>
                     <p class="tagline">${tagline}</p>
                     `;
-            photographBanner.appendChild(infoMembers);
-                // nom + ville + tagline
-            photographBanner.appendChild(contactMembers);
-                // récupération du <button>
-            photographBanner.appendChild(avatarMembers);
-                // doit recevoir la photo de profil
-            return {infoMembers, contactMembers, avatarMembers};
-        };
-        return (null)
+            
+            photographHeader.appendChild(contactMembers);
+            contactMembers = `
+                    <button class="contact_button" onclick="displayModal()">
+                        Contactez-moi
+                    </button>
+                    `;
+        }
+        return photographHeader;
     }
-
-    //fonction description
     
-    // Paramètre de configuration pour URL : Seacrh param
-/*  
-    const queryString = window.location.search;   
-    const urlParams = new URLSearchParams(queryString);   
-    const id = urlParams.get('id');
-*/  
-    // On détermine ici l'emplacement de la recherche,
-    // Avec la fonction de création on détermine l'élément pris en compte : l'ID.
-    function searchByIdUser() {
-        let SearchLocation = window.location.search;
-        let searchAdd = new URLSearchParams(SearchLocation);
-        let searchById = searchAdd.get('id');
-    }
-
-    return { name, picture, id, city, country, tagline, price, getUserCardDOM, getUserHeaderDOM, searchByIdUser }
+    return { name, picture, id, city, country, tagline, price, getUserCardDOM, getUserHeaderDOM/*, searchByIdUser*/ };
 
 
