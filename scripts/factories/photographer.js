@@ -10,6 +10,7 @@ export function photographerFactory(data) {
     // Crée un lien Hypertext qui renvoie à la page du photographe grâce à son ID.
     const linkPage = document.createElement('a');
         linkPage.setAttribute('href', `../../photographer.html/${id}`);
+        linkPage.setAttribute('class', 'userOwnPage' );
     
     const picture = `assets/photographers/profiles/${portrait}`;
 
