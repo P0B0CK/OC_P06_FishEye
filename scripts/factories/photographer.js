@@ -8,8 +8,8 @@ export function photographerFactory(data) {
     const { name, portrait, id, city, country, tagline, price } = data;
 
     // Crée un lien Hypertext qui renvoie à la page du photographe grâce à son ID.
-    /*const linkPage = document.createElement('a');
-        linkPage.setAttribute('href', searchByIdUser);*/
+    const linkPage = document.createElement('a');
+        linkPage.setAttribute('href', `../../photographer.html/${id}`);
     
     const picture = `assets/photographers/profiles/${portrait}`;
 
@@ -60,10 +60,12 @@ export function photographerFactory(data) {
                         Contactez-moi
                     </button>
                     `;
-        }
-        return photographHeader;
+                    
+            return photographHeader;
     }
+
+    return { name, picture, id, city, country, tagline, price, getUserCardDOM, getUserHeaderDOM };
+}
     
-    return { name, picture, id, city, country, tagline, price, getUserCardDOM, getUserHeaderDOM/*, searchByIdUser*/ };
 
 
