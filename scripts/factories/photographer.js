@@ -60,7 +60,7 @@ export function photographerFactory(data) {
                         Contactez-moi
                     </button>
                     `;
-                    
+
             return photographHeader;
     }
 
