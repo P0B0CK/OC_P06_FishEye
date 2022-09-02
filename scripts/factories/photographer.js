@@ -9,7 +9,7 @@ export function photographerFactory(data) {
 
     // Crée un lien Hypertext qui renvoie à la page du photographe grâce à son ID.
     const linkPage = document.createElement('a');
-        linkPage.setAttribute('href', `../../photographer.html/${id}`);
+        linkPage.setAttribute('href', `../../photographer.html?id=${id}`);
         linkPage.setAttribute('class', 'userOwnPage' );
     
     const picture = `assets/photographers/profiles/${portrait}`;
@@ -38,7 +38,7 @@ export function photographerFactory(data) {
     }
 
     function getUserHeaderDOM() {
-           const photographHeader = document.querySelector('.photograph-header');
+           const photographContainer = document.createElement('div');
    
             const infoMembers = document.createElement('div');
             const contactMembers = document.createElement('div');
@@ -48,21 +48,21 @@ export function photographerFactory(data) {
             contactMembers.setAttribute('class', 'contactMembers');
             avatarMembers.setAttribute('class', 'avatarMembers');
             
-            photographHeader.appendChild(infoMembers);
+            photographContainer.appendChild(infoMembers);
             infoMembers.innerHTML = `
                     <h2>${name}</h2>
                     <p class="city">${city + ", " + country}</p>
                     <p class="tagline">${tagline}</p>
                     `;
             
-            photographHeader.appendChild(contactMembers);
-            contactMembers = `
+                    photographContainer.appendChild(contactMembers);
+            contactMembers.innerHTML = `
                     <button class="contact_button" onclick="displayModal()">
                         Contactez-moi
                     </button>
                     `;
 
-            return photographHeader;
+            return photographContainer;
     }
 
     return { name, picture, id, city, country, tagline, price, getUserCardDOM, getUserHeaderDOM };

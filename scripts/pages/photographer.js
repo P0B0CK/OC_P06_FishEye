@@ -3,7 +3,7 @@ import { getPhotographers } from "../utils/api.js";
 
 
 async function displayHeader(photographer) {
-    const photographerHeader = document.querySelector('.photographer_header');
+    const photographerHeader = document.querySelector('.photograph-header');
     
     const photographerModel = photographerFactory(photographer);
     const userHeaderDOM = photographerModel.getUserHeaderDOM();
@@ -29,11 +29,20 @@ async function searchUserById() {
 }
 */
 //console.log(searchUserById(925));
+const getPhotographerUserInfos = async (id) => {
+    const { photographers } = await getPhotographers();
+    const photographerUserInfos = photographers.find(el => el.id == id)
+    return photographerUserInfos;
+};
 
 async function init() {
-    const { photographer } = await getPhotographers();
-    displayHeader(photographer);
-    searchUserById()
+    const queryString = window.location.search;   
+    const urlId = new URLSearchParams(queryString);   
+    const id = urlId.get('id');
+    const photographerUserInfo = await getPhotographerUserInfos(id);
+    console.log(photographerUserInfo);
+    
+    displayHeader(photographerUserInfo);
 };
 
 init();
