@@ -16,8 +16,8 @@ export function photographerFactory(data) {
 
     function getUserCardDOM() {
         const article = document.createElement( 'article' );
-        const img = document.createElement( 'img' );
-            img.setAttribute("src", picture)
+        const avatarPicture = document.createElement( 'img' );
+            avatarPicture.setAttribute("src", picture);
         const h2 = document.createElement( 'h2' );
             h2.textContent = name;
         const h3 = document.createElement( 'h3');
@@ -28,7 +28,7 @@ export function photographerFactory(data) {
             p.textContent = price + '€/jour';
         
         article.appendChild(linkPage);
-            linkPage.appendChild(img);
+            linkPage.appendChild(avatarPicture);
         article.appendChild(h2);
         article.appendChild(h3);
         article.appendChild(h4);
@@ -36,31 +36,47 @@ export function photographerFactory(data) {
 
         return (article)
     }
-
-    function getUserHeaderDOM() {
-           const photographContainer = document.createElement('div');
-   
-            const infoMembers = document.createElement('div');
-            const contactMembers = document.createElement('div');
-            const avatarMembers = document.createElement('div');
     
-            infoMembers.setAttribute('class', 'infoMembers');
-            contactMembers.setAttribute('class', 'contactMembers');
-            avatarMembers.setAttribute('class', 'avatarMembers');
+    function getUserHeaderDOM() {
+        const photographContainer = document.createElement('div');
+        photographContainer.setAttribute('class', 'userBanner')
+        
+        const infoMembers = document.createElement('div');
+        infoMembers.setAttribute('class', 'infoMembers');
+        infoMembers.setAttribute('class', 'userBanner-container');
+        
+        const contactMembers = document.createElement('div');
+        contactMembers.setAttribute('class', 'contactMembers');
+        contactMembers.setAttribute('class', 'userBanner-container');
+        
+        const avatarMembers = document.createElement('div');
+        avatarMembers.setAttribute('class', 'avatarMembers');
+        avatarMembers.setAttribute('class', 'userBanner-container');
+        
+        const avatar = `assets/photographers/profiles/${portrait}`;
+        const avatarPicture = document.createElement( 'img' );
+        avatarPicture.setAttribute("src", avatar);
+        avatarPicture.setAttribute('class', 'userAvatar');
+            
             
             photographContainer.appendChild(infoMembers);
-            infoMembers.innerHTML = `
+                infoMembers.innerHTML = `
                     <h2>${name}</h2>
                     <p class="city">${city + ", " + country}</p>
                     <p class="tagline">${tagline}</p>
                     `;
             
-                    photographContainer.appendChild(contactMembers);
-            contactMembers.innerHTML = `
+            photographContainer.appendChild(contactMembers);
+                contactMembers.innerHTML = `
                     <button class="contact_button" onclick="displayModal()">
                         Contactez-moi
                     </button>
                     `;
+
+            photographContainer.appendChild(avatarMembers);
+                avatarMembers.appendChild(avatarPicture);
+                
+                    
 
             return photographContainer;
     }
