@@ -10,6 +10,29 @@ async function displayHeader(photographer) {
     photographerHeader.appendChild(userHeaderDOM);
 };
 
+export const getPhotographerUserInfos = async (id) => {
+    const { photographers } = await getPhotographers();
+    const photographerUserInfos = photographers.find(el => el.id == id)
+    return photographerUserInfos;
+};
+
+export function getIdUrlParam () {
+    const queryString = window.location.search;   
+    const urlId = new URLSearchParams(queryString);   
+    const id = urlId.get('id');
+    return id
+}
+
+async function init() {
+    const id = getIdUrlParam();
+    const photographerUserInfo = await getPhotographerUserInfos(id);
+    console.log(photographerUserInfo);
+    displayHeader(photographerUserInfo);
+    
+};
+
+init();
+
 // search by ID ::
 /*
 const queryString = window.location.search;   
@@ -29,20 +52,3 @@ async function searchUserById() {
 }
 */
 //console.log(searchUserById(925));
-const getPhotographerUserInfos = async (id) => {
-    const { photographers } = await getPhotographers();
-    const photographerUserInfos = photographers.find(el => el.id == id)
-    return photographerUserInfos;
-};
-
-async function init() {
-    const queryString = window.location.search;   
-    const urlId = new URLSearchParams(queryString);   
-    const id = urlId.get('id');
-    const photographerUserInfo = await getPhotographerUserInfos(id);
-    console.log(photographerUserInfo);
-    
-    displayHeader(photographerUserInfo);
-};
-
-init();

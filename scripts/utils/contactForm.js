@@ -1,9 +1,20 @@
-export function displayModal() {
+import { getPhotographerUserInfos, getIdUrlParam } from "../pages/photographer.js";
+
+async function displayModal() {
     const modal = document.getElementById("contact_modal");
+    const id = getIdUrlParam();
+    const userInfo = await getPhotographerUserInfos(id);
+    console.log(userInfo);
+    const contactMe = document.getElementById('nameContact');
+    contactMe.innerHTML = `
+    Contactez-moi ${userInfo.name}
+    `; 
+    /*
+    */
 	modal.style.display = "block";
 }
 
-export function closeModal() {
+function closeModal() {
     const modal = document.getElementById("contact_modal");
     modal.style.display = "none";
 }

@@ -18,10 +18,11 @@
     <div id="contact_modal">
 			<div class="modal">
 				<header>
-          <h2>Contactez-moi Prenom Nom</h2>
+          <h2 id="nameContact">Contactez-moi</h2>
           <img src="assets/icons/close.svg" onclick="closeModal()" />
         </header>
-				<form>
+
+				<form id="contactForm">
 					<div>
 						<label for="firstname">Prénom</label>
 						<input type="text" id="firstname" name="firstname" required minlength="2">
@@ -34,10 +35,11 @@
 					</div>
           <button type="submit" class="contact_button">Envoyer</button>
 				</form>
+        
 			</div>
 		</div>
-    <script src="/scripts/factories/photographer.js" type="module"></script>
     <script src="/scripts/utils/contactForm.js" type="module"></script>
+    <script src="/scripts/factories/photographer.js" type="module"></script>
     <script src="/scripts/pages/photographer.js" type="module"></script>
   </body>
 </html>
