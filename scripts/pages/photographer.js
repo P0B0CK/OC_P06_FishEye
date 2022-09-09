@@ -23,12 +23,38 @@ export function getIdUrlParam () {
     return id
 }
 
+async function displayMedias(photographer) {
+    const photographerMedias = document.querySelector('#main');
+    
+    const photographerModel = mediasFactory(photographer);
+    const userGalleryDOM = photographerModel.getUserMediasDOM();
+    photographerMedias.appendChild(userGalleryDOM);
+};
+
+export function myMessage() {
+
+    const btnSubmit = document.getElementById('btnSubmit');
+    const inputsForm = document.querySelector("form#contactForm input[name='getValue']");
+
+    const inputFirst = document.getElementById('firstname').value;
+    const inputLast = document.getElementById('lastname').value;
+    const inputEmail = document.getElementById('email').value;
+    const inputMsg = document.getElementById('message').value;
+
+    btnSubmit.addEventListener("submit" , () => { 
+        inputsForm.forEach(input, () => {
+            return console.log( "Nouveau message de " + inputFirst + " " + inputLast + " depuis l'adresse " + inputEmail + " : " + inputMsg );
+        });
+    return closeModal()
+    }); 
+};
+
 async function init() {
     const id = getIdUrlParam();
     const photographerUserInfo = await getPhotographerUserInfos(id);
-    console.log(photographerUserInfo);
     displayHeader(photographerUserInfo);
-    
+    displayMedias()
+    myMessage();
 };
 
 init();

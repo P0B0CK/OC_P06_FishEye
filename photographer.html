@@ -22,24 +22,25 @@
           <img src="assets/icons/close.svg" onclick="closeModal()" />
         </header>
 
-				<form id="contactForm">
+				<form id="contactForm" onsubmit="myMessage()" method="GET" >
 					<div>
 						<label for="firstname">Prénom</label>
-						<input type="text" id="firstname" name="firstname" required minlength="2">
+						<input type="text" id="firstname" name="getValue" required minlength="2">
             <label for="lastname">Nom</label>
-						<input type="text" id="lastname" name="lastname" required minlength="2">
+						<input type="text" id="lastname" name="getValue" required minlength="2">
             <label for="email">Email</label>
-						<input type="email" id="email">
+						<input type="email" id="email" name="getValue">
             <label for="message">Votre message</label>
-						<input type="text" id="message-text" name="message-text">
+						<input type="text" id="message" name="getValue">
 					</div>
-          <button type="submit" class="contact_button">Envoyer</button>
+          <button type="submit" id="btnSubmit" class="contact_button">Envoyer</button>
 				</form>
         
 			</div>
 		</div>
     <script src="/scripts/utils/contactForm.js" type="module"></script>
     <script src="/scripts/factories/photographer.js" type="module"></script>
+    <script src="/scripts/factories/medias.js" type="module"></script>
     <script src="/scripts/pages/photographer.js" type="module"></script>
   </body>
 </html>

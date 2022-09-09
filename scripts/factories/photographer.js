@@ -76,13 +76,11 @@ export function photographerFactory(data) {
             photographContainer.appendChild(avatarMembers);
                 avatarMembers.appendChild(avatarPicture);
                 
-                    
-
             return photographContainer;
     }
 
     return { name, picture, id, city, country, tagline, price, getUserCardDOM, getUserHeaderDOM };
-}
+};
     
 
 
