@@ -4,10 +4,11 @@ export async function getPhotographers() {
 
     await fetch("../../data/photographers.json")
         .then((res) => res.json())
-        .then((data) => photographers = data.photographers)
-        .then((data) => media = data.media);
+        .then((data) => {
+            photographers = data.photographers;
+            media = data.media;
+        });
     return ({
-        photographers: [...photographers],
-        media : [...media]
+        photographers: [...photographers, media],
     })
 }
