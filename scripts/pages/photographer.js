@@ -1,11 +1,12 @@
 import { photographerFactory } from "../factories/photographer.js";
+import { mediasFactory } from "../factories/medias.js";
 import { getPhotographers } from "../utils/api.js";
 
 
 async function displayHeader(photographer) {
     const photographerHeader = document.querySelector('.photograph-header');
     
-    const photographerModel = photographerFactory(photographer);
+    const photographerModel = await photographerFactory(photographer);
     const userHeaderDOM = photographerModel.getUserHeaderDOM();
     photographerHeader.appendChild(userHeaderDOM);
 };
@@ -25,8 +26,8 @@ export function getIdUrlParam () {
 
 async function displayMedias(photographer) {
     const photographerMedias = document.querySelector('#main');
-    
-    const photographerModel = mediasFactory(photographer);
+     
+    const photographerModel = await mediasFactory(photographer);
     const userGalleryDOM = photographerModel.getUserMediasDOM();
     photographerMedias.appendChild(userGalleryDOM);
 };
@@ -53,7 +54,7 @@ async function init() {
     const id = getIdUrlParam();
     const photographerUserInfo = await getPhotographerUserInfos(id);
     displayHeader(photographerUserInfo);
-    displayMedias()
+    displayMedias(photographerUserInfo);
     myMessage();
 };
 
