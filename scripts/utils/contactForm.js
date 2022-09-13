@@ -8,9 +8,8 @@ async function displayModal() {
     const contactMe = document.getElementById('nameContact');
     contactMe.innerHTML = `
     Contactez-moi ${userInfo.name}
-    `; 
-    /*
-    */
+    `;
+    
 	modal.style.display = "block";
 }
 

@@ -30,6 +30,38 @@ export function mediasFactory(data) {
                     <option value="titre">Titre</option>
                 </select>`;
         
+
+        
+        photographGallery.appendChild(galleryMedias);
+
+        const mediaCard = document.createElement('div');
+            mediaCard.setAttribute('class' , 'mediaCard');
+        
+        // Ouverture du LIGHTBOX
+        const cardLink = document.createElement('a');
+            cardLink.setAttribute('href' , '')
+        
+        cardLink.appendChild(mediaCard);
+        galleryMedias.appendChild(cardLink);
+
+        const mediaPicture = document.createElement('img');
+        mediaPicture.setAttribute('src' , `../../asset/photographers/${photographerId}/${id}`);
+        mediaCard.appendChild(mediaPicture);
+
+        const mediaInfos = document.createElement('div');
+        mediaInfos.setAttribute('class' , 'mediaInfos');
+        mediaCard.appendChild(mediaInfos);
+        const mediaTitle = document.createElement('p');
+        mediaTitle.setAttribute('class' , 'card-title');
+        mediaTitle.innerHTML = `${title}`;
+        const mediaLikes = document.createElement('p');
+        mediaLikes.setAttribute('class' , 'card-likes');
+        mediaLikes.innerHTML = `${likes}`;
+        mediaInfos.appendChild(mediaTitle);
+        mediaInfos.appendChild(mediaLikes);
+
+
+/*        
         function mediaCard() {
             // CARD MEDIA :: 
             // PICTURE/VIDEO + TITLE + LIKES
@@ -70,8 +102,9 @@ export function mediasFactory(data) {
 
             return mediaCard;
         };
-
-        return photographGallery, mediaCard;
+*/
+        
+        return photographGallery;
     };
 
     return { id, photographerId, title, image, likes, date, price, getUserMediasDOM };
