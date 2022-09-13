@@ -1,5 +1,12 @@
 import { getPhotographerUserInfos, getIdUrlParam } from "../pages/photographer.js";
 
+const contactForm = document.getElementById('contactForm');
+contactForm.addEventListener('submit' , (e) => {
+    e.preventDefault();
+    // restituer champs du formulaire getE.value
+    // console.log()
+});
+
 async function displayModal() {
     const modal = document.getElementById("contact_modal");
     const id = getIdUrlParam();

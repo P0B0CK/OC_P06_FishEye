@@ -1,4 +1,4 @@
-export async function getPhotographers() {
+export async function api() {
     let photographers;
     let media;
 
@@ -8,7 +8,19 @@ export async function getPhotographers() {
             photographers = data.photographers;
             media = data.media;
         });
-    return ({
-        photographers: [...photographers, media],
-    })
+   
+
+    function getMedias(){
+        return ({
+            medias: [... media],
+        })
+    }
+
+    function getPhotographers(){
+        return ({
+            photographers: [...photographers],
+        })
+    }
+
+    return { getMedias, getPhotographers}
 }

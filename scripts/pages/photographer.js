@@ -1,7 +1,7 @@
 import { photographerFactory } from "../factories/photographer.js";
 import { mediasFactory } from "../factories/medias.js";
-import { getPhotographers } from "../utils/api.js";
-
+import { api } from "../utils/api.js";
+// modifier api et import 
 
 async function displayHeader(photographer) {
     const photographerHeader = document.querySelector('.photograph-header');
@@ -12,7 +12,8 @@ async function displayHeader(photographer) {
 };
 
 export const getPhotographerUserInfos = async (id) => {
-    const { photographers } = await getPhotographers();
+    const apiPhotographers = await api();
+    const { photographers } = apiPhotographers.getPhotographers();
     const photographerUserInfos = photographers.find(el => el.id == id)
     return photographerUserInfos;
 };
@@ -52,6 +53,7 @@ export function myMessage() {
 
 async function init() {
     const id = getIdUrlParam();
+    document.photographerId = id;
     const photographerUserInfo = await getPhotographerUserInfos(id);
     displayHeader(photographerUserInfo);
     displayMedias(photographerUserInfo);

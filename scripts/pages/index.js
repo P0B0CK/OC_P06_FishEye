@@ -1,5 +1,5 @@
 import { photographerFactory } from "../factories/photographer.js";
-import { getPhotographers } from "../utils/api.js";
+import { api } from "../utils/api.js";
 
     /**
      * Détails des photographes.
@@ -18,7 +18,8 @@ async function displayData(photographers) {
 
 async function init() {
     // GET DATAS PHOTOGRAPHERS
-    const { photographers } = await getPhotographers();
+    const apiPhotographers = await api();
+    const { photographers } = apiPhotographers.getPhotographers();
     displayData(photographers);
     getUserById();
 };
