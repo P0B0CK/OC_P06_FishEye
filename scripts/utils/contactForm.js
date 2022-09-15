@@ -1,20 +1,34 @@
 import { getPhotographerUserInfos, getIdUrlParam } from "../pages/photographer.js";
 
+// restituer champs du formulaire getE.value
+// console.log()
 const contactForm = document.getElementById('contactForm');
+
 contactForm.addEventListener('submit' , (e) => {
     e.preventDefault();
-    // restituer champs du formulaire getE.value
-    // console.log()
+    
+    const inputsForm = contactForm.getElementsByTagName('input');
+    let error;
+
+    for (let i = 0; i < inputsForm.length; i++) {
+        if (!inputsForm[i].value) {
+            error = "Veuillez renseigner tous les champs.";
+        } else {
+            console.log(inputsForm[i].value);
+        };
+    };
+
+    return closeModal();
 });
 
 async function displayModal() {
     const modal = document.getElementById("contact_modal");
     const id = getIdUrlParam();
     const userInfo = await getPhotographerUserInfos(id);
-    console.log(userInfo);
+    // console.log(userInfo);
     const contactMe = document.getElementById('nameContact');
     contactMe.innerHTML = `
-    Contactez-moi ${userInfo.name}
+        Contactez-moi ${userInfo.name}
     `;
     
 	modal.style.display = "block";

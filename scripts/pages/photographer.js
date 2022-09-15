@@ -33,23 +33,23 @@ async function displayMedias(photographer) {
     photographerMedias.appendChild(userGalleryDOM);
 };
 
-export function myMessage() {
+// export function myMessage() {
 
-    const btnSubmit = document.getElementById('btnSubmit');
-    const inputsForm = document.querySelector("form#contactForm input[name='getValue']");
+//     const btnSubmit = document.getElementById('btnSubmit');
+//     const inputsForm = document.querySelector("form#contactForm input[name='getValue']");
 
-    const inputFirst = document.getElementById('firstname').value;
-    const inputLast = document.getElementById('lastname').value;
-    const inputEmail = document.getElementById('email').value;
-    const inputMsg = document.getElementById('message').value;
+//     const inputFirst = document.getElementById('firstname').value;
+//     const inputLast = document.getElementById('lastname').value;
+//     const inputEmail = document.getElementById('email').value;
+//     const inputMsg = document.getElementById('message').value;
 
-    btnSubmit.addEventListener("submit" , () => { 
-        inputsForm.forEach(input, () => {
-            return console.log( "Nouveau message de " + inputFirst + " " + inputLast + " depuis l'adresse " + inputEmail + " : " + inputMsg );
-        });
-    return closeModal()
-    }); 
-};
+//     btnSubmit.addEventListener("submit" , () => { 
+//         inputsForm.forEach(input, () => {
+//             return console.log( "Nouveau message de " + inputFirst + " " + inputLast + " depuis l'adresse " + inputEmail + " : " + inputMsg );
+//         });
+//     return closeModal()
+//     }); 
+// };
 
 async function init() {
     const id = getIdUrlParam();
@@ -57,7 +57,7 @@ async function init() {
     const photographerUserInfo = await getPhotographerUserInfos(id);
     displayHeader(photographerUserInfo);
     displayMedias(photographerUserInfo);
-    myMessage();
+    //myMessage();
 };
 
 init();
