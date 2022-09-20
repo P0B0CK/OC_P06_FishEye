@@ -33,31 +33,20 @@ async function displayMedias(photographer) {
     photographerMedias.appendChild(userGalleryDOM);
 };
 
-// export function myMessage() {
-
-//     const btnSubmit = document.getElementById('btnSubmit');
-//     const inputsForm = document.querySelector("form#contactForm input[name='getValue']");
-
-//     const inputFirst = document.getElementById('firstname').value;
-//     const inputLast = document.getElementById('lastname').value;
-//     const inputEmail = document.getElementById('email').value;
-//     const inputMsg = document.getElementById('message').value;
-
-//     btnSubmit.addEventListener("submit" , () => { 
-//         inputsForm.forEach(input, () => {
-//             return console.log( "Nouveau message de " + inputFirst + " " + inputLast + " depuis l'adresse " + inputEmail + " : " + inputMsg );
-//         });
-//     return closeModal()
-//     }); 
-// };
+export const getMediaUserInfos = async (id) => {
+    const apiMedia = await api();
+    const { media } = apiMedia.getMedia();
+    const mediaUserInfos = media.find(el => el.id == id)
+    return mediaUserInfos;
+};
 
 async function init() {
     const id = getIdUrlParam();
     document.photographerId = id;
     const photographerUserInfo = await getPhotographerUserInfos(id);
+    //const mediaUserInfo = await getMediaUserInfos(id);
     displayHeader(photographerUserInfo);
     displayMedias(photographerUserInfo);
-    //myMessage();
 };
 
 init();

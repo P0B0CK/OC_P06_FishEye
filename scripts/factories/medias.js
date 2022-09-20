@@ -27,13 +27,23 @@ export function mediasFactory(data) {
                         <option value="date">Date</option>
                         <option value="titre">Titre</option>
                     </select>`;
-        
+            
             // DIV GALLERY ::
             const galleryMedias = document.createElement('div');
             galleryMedias.setAttribute('id', 'gallery-medias');
             photographGallery.appendChild(galleryMedias);
-
+            
             // ARTICLE MEDIACARD ::
+            const mediaCard = document.createElement('article');
+            mediaCard.setAttribute('class' , 'mediaCard');
+            
+            const mediaCardLink = document.createElement('a');
+            mediaCardLink.setAttribute('href' , '')
+            
+            mediaCardLink.appendChild(mediaCard);
+            galleryMedias.appendChild(mediaCardLink);
+            
+            
             //getPhotographerUserInfos
             // const mediaIdPhotographer = medias.map(media => media.photographerId)
             //const mediaOwner = media.filter(){return media.${photographerId}}
@@ -54,20 +64,11 @@ export function mediasFactory(data) {
         //const mediaVideo = `<video><source src="../../asset/photographers/${photographerId}/${video}" type="video/mp4" /></video>`;
         // MEDIA VERIFICATION ::
         // const mediaFormat = undefined ? mediaPhoto : mediaVideo;
-        
-
-        const mediaCard = document.createElement('article');
-            mediaCard.setAttribute('class' , 'mediaCard');
-        
-        // Ouverture du LIGHTBOX
-        const cardLink = document.createElement('a');
-            cardLink.setAttribute('href' , '')
-        
-        cardLink.appendChild(mediaCard);
-        galleryMedias.appendChild(cardLink);
+        // const mediaIdFromUser = media.map(photographerId => id);
+        // console.log(mediaIdFromUser);
 
         const mediaPicture = document.createElement('img');
-        mediaPicture.setAttribute('src' ,  `../../asset/photographers/${photographerId}/${image}`);
+        mediaPicture.setAttribute('src' ,  `../../asset/photographers?id=${photographerId}/${id}`);
         mediaCard.appendChild(mediaPicture);
 
         const mediaInfos = document.createElement('div');

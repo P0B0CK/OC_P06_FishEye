@@ -10,9 +10,9 @@ export async function api() {
         });
    
 
-    function getMedias(){
+    function getMedia(){
         return ({
-            medias: [... media],
+            media: [... media],
         })
     }
 
@@ -22,5 +22,5 @@ export async function api() {
         })
     }
 
-    return { getMedias, getPhotographers}
+    return { getMedia, getPhotographers}
 }
