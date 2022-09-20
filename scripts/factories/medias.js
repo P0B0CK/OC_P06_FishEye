@@ -10,31 +10,53 @@ export function mediasFactory(data) {
 
 
     function getUserMediasDOM(){
-        // Div principale contenant la gallery ::
-        const photographGallery = document.createElement('div');
+        // MAIN SECTION ::
+        const photographGallery = document.createElement('section');
         photographGallery.setAttribute('id', 'photograph-gallery');
-        // Div secondaire contenant le filtre ::
-        const galleryFilter = document.createElement('div');
-        galleryFilter.setAttribute('id', 'gallery-filter');
-        // Div secondaire contenant les médias ::
-        const galleryMedias = document.createElement('div');
-        galleryMedias.setAttribute('id', 'gallery-medias');
-
         
-        photographGallery.appendChild(galleryFilter);
-        galleryFilter.innerHTML = `
-            <label for="medias-filter">Trier par </label>
-                <select name="medias-select" id="medias-filter">
-                    <option value="popu">Popularité</option>
-                    <option value="date">Date</option>
-                    <option value="titre">Titre</option>
-                </select>`;
+            // IN MAIN SECTION
+            // TITLE
+            const galleryFilter = document.createElement('h4');
+            galleryFilter.setAttribute('id', 'gallery-filter');
+            // FILTER SELECT-BOX :
+            photographGallery.appendChild(galleryFilter);
+            galleryFilter.innerHTML = `
+                <label for="medias-filter">Trier par </label>
+                    <select name="medias-select" id="medias-filter">
+                        <option value="popu">Popularité</option>
+                        <option value="date">Date</option>
+                        <option value="titre">Titre</option>
+                    </select>`;
+        
+            // DIV GALLERY ::
+            const galleryMedias = document.createElement('div');
+            galleryMedias.setAttribute('id', 'gallery-medias');
+            photographGallery.appendChild(galleryMedias);
+
+            // ARTICLE MEDIACARD ::
+            //getPhotographerUserInfos
+            // const mediaIdPhotographer = medias.map(media => media.photographerId)
+            //const mediaOwner = media.filter(){return media.${photographerId}}
+            // for ( let i = medias.length; i >= 0; i++){
+            //     const mediaCard = document.createElement('article');
+            //     mediaCard.setAttribute('class' , 'mediaCard');
+
+            //     if(medias[i].id = i++){
+
+            //     }
+            //     return mediaCard;
+            // };
+
+
+        // MEDIA PHOTOGRAPHY ::
+        // const mediaPhoto = `<img src="../../asset/photographers/${photographerId}/${image}"/>`;
+        // MEDIA VIDEO ::
+        //const mediaVideo = `<video><source src="../../asset/photographers/${photographerId}/${video}" type="video/mp4" /></video>`;
+        // MEDIA VERIFICATION ::
+        // const mediaFormat = undefined ? mediaPhoto : mediaVideo;
         
 
-        
-        photographGallery.appendChild(galleryMedias);
-
-        const mediaCard = document.createElement('div');
+        const mediaCard = document.createElement('article');
             mediaCard.setAttribute('class' , 'mediaCard');
         
         // Ouverture du LIGHTBOX
@@ -45,7 +67,7 @@ export function mediasFactory(data) {
         galleryMedias.appendChild(cardLink);
 
         const mediaPicture = document.createElement('img');
-        mediaPicture.setAttribute('src' , `../../asset/photographers/${photographerId}/${id}`);
+        mediaPicture.setAttribute('src' ,  `../../asset/photographers/${photographerId}/${image}`);
         mediaCard.appendChild(mediaPicture);
 
         const mediaInfos = document.createElement('div');
@@ -59,50 +81,6 @@ export function mediasFactory(data) {
         mediaLikes.innerHTML = `${likes}`;
         mediaInfos.appendChild(mediaTitle);
         mediaInfos.appendChild(mediaLikes);
-
-
-/*        
-        function mediaCard() {
-            // CARD MEDIA :: 
-            // PICTURE/VIDEO + TITLE + LIKES
-            const mediaCard = document.createElement('div');
-            mediaCard.setAttribute('class' , 'mediaCard');
-            
-                // CARD PICTURE ::
-                // Doit être un lien contenant une image
-                const linkMedia = document.createElement('a');
-                    linkMedia.setAttribute('href', `../../photographer.html?id=${id}?media=${id}`);
-                linkMedia.appendChild(mediaCard);
-
-                const cardPict = document.createElement('div');
-                    cardPict.setAttribute('class' ,  'picture-ctn');
-
-
-                // CARD LEGEND ::  
-                // media title + number of likes
-                const cardLegend = document.createElement('div');
-                    cardLegend.setAttribute('class' , 'title-card');
-                        
-                        const mediaTitle = document.createElement('div');
-                            cardLegend.setAttribute('class' , 'media-title');
-                    
-                        const nbrLikes = document.createElement('div');
-                            cardLegend.setAttribute('class' , 'nbrLikes');
-                    
-                    mediaTitle.textContent = title;
-                    nbrLikes.textContent = likes;
-            
-                cardLegend.appendChild(mediaTitle);
-                cardLegend.appendChild(nbrLikes);
-
-            // MEDIA CARD ::
-            // Affiliation des enfants de mediaCard
-            mediaCard.appendChild(cardPict);            
-            mediaCard.appendChild(cardLegend);
-
-            return mediaCard;
-        };
-*/
         
         return photographGallery;
     };
