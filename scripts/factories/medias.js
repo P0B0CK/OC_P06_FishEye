@@ -14,28 +14,34 @@ export function mediasFactory(data) {
         const photographGallery = document.createElement('section');
         photographGallery.setAttribute('id', 'photograph-gallery');
         
-            // IN MAIN SECTION
-            // TITLE
-            const galleryFilter = document.createElement('h4');
-            galleryFilter.setAttribute('id', 'gallery-filter');
-            // FILTER SELECT-BOX :
-            photographGallery.appendChild(galleryFilter);
-            galleryFilter.innerHTML = `
-                <label for="medias-filter">Trier par </label>
-                    <select name="medias-select" id="medias-filter">
-                        <option value="popu">Popularité</option>
-                        <option value="date">Date</option>
-                        <option value="titre">Titre</option>
-                    </select>`;
+            // // IN MAIN SECTION
+            // // TITLE
+            // const galleryFilter = document.createElement('h4');
+            // galleryFilter.setAttribute('id', 'gallery-filter');
+            // // FILTER SELECT-BOX :
+            // photographGallery.appendChild(galleryFilter);
+            // galleryFilter.innerHTML = `
+            //     <label for="medias-filter">Trier par </label>
+            //         <select name="medias-select" id="medias-filter">
+            //             <option value="popu">Popularité</option>
+            //             <option value="date">Date</option>
+            //             <option value="titre">Titre</option>
+            //         </select>`;
             
             // DIV GALLERY ::
             const galleryMedias = document.createElement('div');
             galleryMedias.setAttribute('id', 'gallery-medias');
             photographGallery.appendChild(galleryMedias);
             
+            // créer l'article façon innerHTML.
+            // Condition IF d'affichage selon photo/video
             // ARTICLE MEDIACARD ::
             const mediaCard = document.createElement('article');
             mediaCard.setAttribute('class' , 'mediaCard');
+            mediaCard.innerHTML =`
+            <img/>
+            <h4></h4>
+            <p></p>`;
             
             const mediaCardLink = document.createElement('a');
             mediaCardLink.setAttribute('href' , '')

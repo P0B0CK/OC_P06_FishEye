@@ -36,7 +36,7 @@ async function displayMedias(photographer) {
 export const getMediaUserInfos = async (id) => {
     const apiMedia = await api();
     const { media } = apiMedia.getMedia();
-    const mediaUserInfos = media.find(el => el.id == id)
+    const mediaUserInfos = media.filter(el => el.photographerId == id)
     return mediaUserInfos;
 };
 
@@ -44,7 +44,7 @@ async function init() {
     const id = getIdUrlParam();
     document.photographerId = id;
     const photographerUserInfo = await getPhotographerUserInfos(id);
-    //const mediaUserInfo = await getMediaUserInfos(id);
+    const mediaUserInfo = await getMediaUserInfos(id);
     displayHeader(photographerUserInfo);
     displayMedias(photographerUserInfo);
 };
