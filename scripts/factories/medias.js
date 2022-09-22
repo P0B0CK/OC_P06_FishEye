@@ -24,18 +24,22 @@ export function mediasFactory(data) {
             const mediaPictCard = document.createElement('article');
             mediaPictCard.setAttribute('class' , 'media-card');
             mediaPictCard.innerHTML =`
-                <img src="../../assets/photographers/${photographerId}/${image}" title="${title}"/>
-                <h4 class="cardTitle">${title}</h4>
-                <p class="cardNbrLikes">${likes}</p>`;
+                <img src="../../assets/photographers/${photographerId}/${image}"/>
+                <div class="card-legendary">
+                    <h4 class="cardTitle">${title}</h4>
+                    <p class="cardNbrLikes">${likes}</p>
+                </div>`;
 
             const mediaVidCard = document.createElement('article');
             mediaVidCard.setAttribute('class' , 'media-card');
             mediaVidCard.innerHTML =`
-            <video width="350" height="300" controls>
-                <source src="../../assets/photographers/${photographerId}/${video}" title="${title}" type=video/mp4>
-            </video>
-                <h4 class="cardTitle">${title}</h4>
-                <p class="cardNbrLikes">${likes}</p>`;
+                <video width="350" height="300" controls>
+                    <source src="../../assets/photographers/${photographerId}/${video}" title="${title}" type=video/mp4>
+                </video>
+                <div class="card-legendary">
+                    <h4 class="cardTitle">${title}</h4>
+                    <p class="cardNbrLikes">${likes}</p>
+                </div>`;
         
         // TEST DE LA CONDITION ::
         //
