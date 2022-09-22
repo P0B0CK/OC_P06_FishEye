@@ -17,7 +17,7 @@ export function mediasFactory(data) {
         const mediaPictCard = document.createElement('article');
         mediaPictCard.setAttribute('class' , 'media-card');
         mediaPictCard.innerHTML =`
-            <img src="../../assets/photographers/${photographerId}/${image}"/>
+            <img src="assets/photographers/${photographerId}/${image}"/>
             <div class="card-legendary">
                 <h4 class="cardTitle">${title}</h4>
                 <p class="cardNbrLikes">${likes}</p>
@@ -27,7 +27,7 @@ export function mediasFactory(data) {
         mediaVidCard.setAttribute('class' , 'media-card');
         mediaVidCard.innerHTML =`
             <video width="350" height="300" controls>
-                <source src="../../assets/photographers/${photographerId}/${video}" title="${title}" type=video/mp4>
+                <source src="assets/photographers/${photographerId}/${video}" title="${title}" type=video/mp4>
             </video>
             <div class="card-legendary">
                 <h4 class="cardTitle">${title}</h4>

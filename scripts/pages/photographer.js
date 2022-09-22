@@ -46,7 +46,7 @@ async function init() {
     const photographerUserInfo = await getPhotographerUserInfos(id);
     const mediaUserInfo = await getMediaUserInfos(id);
     displayHeader(photographerUserInfo);
-    displayMedias(photographerUserInfo);
+    displayMedias(mediaUserInfo);
 };
 
 init();
