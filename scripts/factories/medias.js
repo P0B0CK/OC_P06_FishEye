@@ -20,7 +20,7 @@ export function mediasFactory(data) {
             <img src="assets/photographers/${photographerId}/${image}"/>
             <div class="card-legendary">
                 <h4 class="cardTitle">${title}</h4>
-                <p class="cardNbrLikes">${likes}</p>
+                <p class="cardNbrLikes">${likes}</p><i class="fa-sharp fa-solid fa-heart"></i>
             </div>`;
 
         const mediaVidCard = document.createElement('article');
@@ -31,7 +31,7 @@ export function mediasFactory(data) {
             </video>
             <div class="card-legendary">
                 <h4 class="cardTitle">${title}</h4>
-                <p class="cardNbrLikes">${likes}</p>
+                <p class="cardNbrLikes">${likes}</p><i class="fa-sharp fa-solid fa-heart"></i>
             </div>`;
         
         const mediaFormat = undefined ? mediaSection.appendChild(mediaVidCard) : mediaSection.appendChild(mediaPictCard);
