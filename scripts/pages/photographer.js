@@ -32,9 +32,9 @@ async function displayMedias(photographer) {
     const userGalleryDOM = photographerModel.getUserMediasDOM();
     photographerMedias.appendChild(userGalleryDOM);
     //boucle ici
-    media.forEach(id => {
+    photographer.forEach(id => {
         const mediaCard = mediasFactory(id);
-        getUserMediasDOM(mediaCard);
+        mediaCard.getUserMediasDOM();
     });
 };
 
