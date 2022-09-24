@@ -34,7 +34,7 @@ export function mediasFactory(data) {
                 <p class="cardNbrLikes">${likes}</p>
             </div>`;
         
-        const mediaFormat = undefined ? mediaSection.appendChild(mediaPictCard) : mediaSection.appendChild(mediaVidCard);
+        const mediaFormat = undefined ? mediaSection.appendChild(mediaVidCard) : mediaSection.appendChild(mediaPictCard);
         
         // TEST DE LA CONDITION ::
         //

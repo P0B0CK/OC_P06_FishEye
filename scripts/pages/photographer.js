@@ -31,12 +31,17 @@ async function displayMedias(photographer) {
     const photographerModel = await mediasFactory(photographer);
     const userGalleryDOM = photographerModel.getUserMediasDOM();
     photographerMedias.appendChild(userGalleryDOM);
+    //boucle ici
+    media.forEach(id => {
+        const mediaCard = mediasFactory(id);
+        getUserMediasDOM(mediaCard);
+    });
 };
 
 export const getMediaUserInfos = async (id) => {
     const apiMedia = await api();
     const { media } = apiMedia.getMedia();
-    const mediaUserInfos = media.filter(el => el.photographerId == id)
+    const mediaUserInfos = media.filter(el => el.photographerId == id);
     return mediaUserInfos;
 };
 
