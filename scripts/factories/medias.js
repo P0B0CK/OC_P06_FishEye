@@ -27,14 +27,15 @@ export function mediasFactory(data) {
         mediaVidCard.setAttribute('class' , 'media-card');
         mediaVidCard.innerHTML =`
             <video width="350" height="300" controls>
-                <source src="assets/photographers/${photographerId}/${video}" title="${title}" type=video/mp4>
+                <source src="assets/photographers/${photographerId}/${video}"" type=video/mp4>
+                ERROR to load file
             </video>
             <div class="card-legendary">
                 <h4 class="cardTitle">${title}</h4>
                 <p class="cardNbrLikes">${likes}</p><i class="fa-sharp fa-solid fa-heart"></i>
             </div>`;
         
-        const mediaFormat = undefined ? mediaSection.appendChild(mediaVidCard) : mediaSection.appendChild(mediaPictCard);
+        const mediaFormat = data.video ? mediaSection.appendChild(mediaVidCard) : mediaSection.appendChild(mediaPictCard);
         
         // TEST DE LA CONDITION ::
         //
