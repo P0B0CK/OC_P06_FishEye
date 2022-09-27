@@ -215,3 +215,14 @@ h4 {
     font-size: 24px;
     transform: scaleX(-.9);
 }
+
+/*   SPOTLIGHT   */
+
+#spotlight {
+    display: flex;
+
+    width: 376px;
+    height: 89px;
+    background-color: #D3573C;
+    border-radius: 5px 5px 0 0;
+}

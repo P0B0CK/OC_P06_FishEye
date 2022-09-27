@@ -1,7 +1,6 @@
 import { photographerFactory } from "../factories/photographer.js";
 import { mediasFactory } from "../factories/medias.js";
 import { api } from "../utils/api.js";
-// modifier api et import 
 
 async function displayHeader(photographer) {
     const photographerHeader = document.querySelector('.photograph-header');
@@ -45,6 +44,13 @@ export const getMediaUserInfos = async (id) => {
     return mediaUserInfos;
 };
 
+async function displayUserSpotlight(photographer) {
+    const photographerSpot = document.querySelector('#main');
+    const photographerModel = await photographerFactory(photographer);
+    const userSpotlight = photographerModel.getUserSpotlightDOM();
+    photographerSpot.appendChild(userSpotlight);
+}
+
 async function init() {
     const id = getIdUrlParam();
     document.photographerId = id;
@@ -52,26 +58,7 @@ async function init() {
     const mediaUserInfo = await getMediaUserInfos(id);
     displayHeader(photographerUserInfo);
     displayMedias(mediaUserInfo);
+    displayUserSpotlight(photographerUserInfo);
 };
 
 init();
-
-// search by ID ::
-/*
-const queryString = window.location.search;   
-const urlParams = new URLSearchParams(queryString);   
-const id = urlParams.get('id');
-
-let getUserId = photographers.find( el => {
-    return el.id === `${id}`
-})
-*/
-
-/*
-async function searchUserById() {
-    const getUserById = (getPhotographers(), searchId) => {
-        return getPhotographers.filter(id => id.indexof('id'));
-    }
-}
-*/
-//console.log(searchUserById(925));

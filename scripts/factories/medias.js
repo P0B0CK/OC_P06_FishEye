@@ -37,25 +37,6 @@ export function mediasFactory(data) {
         
         const mediaFormat = data.video ? mediaSection.appendChild(mediaVidCard) : mediaSection.appendChild(mediaPictCard);
         
-        // TEST DE LA CONDITION ::
-        //
-        //     if (${image} == null) {
-        //         mediaVidCard.innerHTML =`
-        //             <video width="350" height="300" controls>
-        //                 <source src="../../assets/photographers/${photographerId}/${video}" title="${title}" type=video/mp4>
-        //             </video>
-        //             <video src="" title="${title}"/>
-        //             <h4 class="cardTitle">${title}</h4>
-        //             <p class="cardNbrLikes">${likes}</p>
-        //             `;
-        //     } else (${image} === ${image}) {
-        //         mediaCard.innerHTML =`
-        //             <img src="../../assets/photographers/${photographerId}/${image}" title="${title}"/>
-        //             <h4 class="cardTitle">${title}</h4>
-        //             <p class="cardNbrLikes">${likes}</p>`;
-        //     };
-        // });
-        
         return mediaFormat;
     };
     

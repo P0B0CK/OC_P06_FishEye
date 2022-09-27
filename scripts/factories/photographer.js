@@ -79,7 +79,25 @@ export function photographerFactory(data) {
             return photographContainer;
     }
 
-    return { name, picture, id, city, country, tagline, price, getUserCardDOM, getUserHeaderDOM };
+    function getUserSpotlightDOM() {
+        const spotlight = document.createElement('span');
+        const likesSpot = document.createElement('div');
+        const priceSpot = document.createElement('div');
+        
+        spotlight.setAttribute('id', 'spotlight' );
+        likesSpot.setAttribute('class', 'likes-spot');
+        priceSpot.setAttribute('class' , 'price-spot')
+        
+        spotlight.appendChild(likesSpot);
+        spotlight.appendChild(priceSpot);
+
+        likesSpot.innerHTML=`nombres de likes`;
+        priceSpot.innerHTML=`prix journalier`;
+
+        return (spotlight);
+    }
+
+    return { name, picture, id, city, country, tagline, price, getUserCardDOM, getUserHeaderDOM, getUserSpotlightDOM };
 };
     
 
