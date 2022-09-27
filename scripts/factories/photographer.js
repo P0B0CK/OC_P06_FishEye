@@ -91,8 +91,8 @@ export function photographerFactory(data) {
         spotlight.appendChild(likesSpot);
         spotlight.appendChild(priceSpot);
 
-        likesSpot.innerHTML=`nombres de likes`;
-        priceSpot.innerHTML=`prix journalier`;
+        likesSpot.innerHTML=`<p>XXX XXX<i class="fa-sharp fa-solid fa-heart black"></p>`;
+        priceSpot.innerHTML=`<p>${price}€ / jour</p>`;
 
         return (spotlight);
     }
