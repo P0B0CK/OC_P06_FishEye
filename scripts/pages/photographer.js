@@ -24,14 +24,14 @@ export function getIdUrlParam () {
     return id
 }
 
-async function displayMedias(photographer) {
+function displayMedias(media) {
     const photographerMedias = document.querySelector('#main');
      
-    const photographerModel = await mediasFactory(photographer);
+    const photographerModel = mediasFactory(media);
     const userGalleryDOM = photographerModel.getUserMediasDOM();
     photographerMedias.appendChild(userGalleryDOM);
     //boucle ici
-    photographer.forEach(id => {
+    media.forEach(id => {
         const mediaCard = mediasFactory(id);
         mediaCard.getUserMediasDOM();
     });
