@@ -8,12 +8,6 @@
 export function mediasFactory(data) {
     const { id, photographerId, title, image, video, likes, date, price } = data;
     
-    function getUserMediasDOM(){
-        const mediaSection = document.querySelector(".media-section");
-        const mediaFormat = data.image ? mediaSection.appendChild(imageFactory()) : mediaSection.appendChild(videoFactory());
-        
-        return mediaFormat;
-    };
     
     function imageFactory() {
         const mediaPictCard = document.createElement('article');
@@ -43,6 +37,13 @@ export function mediasFactory(data) {
         
         return mediaVidCard;
     }
+    
+    function getUserMediasDOM(){
+        const mediaSection = document.querySelector(".media-section");
+        const mediaFormat = data.image ? mediaSection.appendChild(imageFactory()) : mediaSection.appendChild(videoFactory());
+        
+        return mediaFormat;
+    };
     
     return { id, photographerId, title, image, likes, date, price, getUserMediasDOM, videoFactory, imageFactory};
 };
