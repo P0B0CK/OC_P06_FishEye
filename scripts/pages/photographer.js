@@ -24,24 +24,23 @@ export function getIdUrlParam () {
     return id
 }
 
-function displayMedias(media) {
-    const photographerMedias = document.querySelector('#main');
-     
-    const photographerModel = mediasFactory(media);
-    const userGalleryDOM = photographerModel.getUserMediasDOM();
-    photographerMedias.appendChild(userGalleryDOM);
-    //boucle ici
-    media.forEach(id => {
-        const mediaCard = mediasFactory(id);
-        mediaCard.getUserMediasDOM();
-    });
-};
-
 export const getMediaUserInfos = async (id) => {
     const apiMedia = await api();
     const { media } = apiMedia.getMedia();
     const mediaUserInfos = media.filter(el => el.photographerId == id);
     return mediaUserInfos;
+};
+
+function displayMedias(media) {
+    // const photographerMedias = document.querySelector('#main');
+     
+    const photographerModel = mediasFactory(media);
+    const userGalleryDOM = photographerModel.getUserMediasDOM();
+    //boucle ici
+    media.forEach(id => {
+        const mediaCard = mediasFactory(id);
+        mediaCard.getUserMediasDOM();
+    });
 };
 
 async function displayUserSpotlight(photographer) {
