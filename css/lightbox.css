@@ -1,0 +1,43 @@
+#lightbox-modal {
+    background-color: gray;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.lightbox {
+    width: 90%;
+    height: auto;
+    background-color: beige;
+    border-radius: 5px;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-around;
+    position: relative;
+}
+
+.mediaPlayer {
+    width : 1050px;
+    height: 900px;
+    background-color: #C4C4C4;
+    border-radius: 5px;
+        left: 0%;
+        right: 0%;
+        top: 0%;
+        bottom: 0%;
+}
+
+.lbIcons {
+    color: #901C1C;
+    font-size: 46px;
+}
+
+.lbClose {
+    background-color: white;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    top: 2%;
+    right: 2%;
+}
