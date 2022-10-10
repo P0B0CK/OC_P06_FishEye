@@ -179,7 +179,7 @@ h4 {
     border-radius: 5px;
 }
 
-.card-legendary {
+.card-legend {
     width: 100%;
     height: 31px;
     margin : 10px 0;
@@ -190,7 +190,7 @@ h4 {
     vertical-align: center;
 }
 
-.card-legendary h4 {
+.card-legend h4 {
     color: #901C1C;
     font-size: 24px;
     font-weight: 400;

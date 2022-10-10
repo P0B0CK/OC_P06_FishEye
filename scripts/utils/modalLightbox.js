@@ -1,4 +1,3 @@
-const  lightboxModal = document.getElementById("lightbox-modal");
 
 function openLightbox() {
     lightboxModal.style.display = "block";
@@ -7,3 +6,8 @@ function openLightbox() {
 function closeLightbox() {
     lightboxModal.style.display = "none";
 };
+
+
+
+
+
