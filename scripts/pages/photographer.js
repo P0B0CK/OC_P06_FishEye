@@ -34,8 +34,9 @@ export const getMediaUserInfos = async (id) => {
 function displayMedias(media) {
     const photographerModel = mediasFactory(media);
     // boucle ici
-    media.forEach(id => {
-        const mediaCard = mediasFactory(id);
+    media.forEach( (element, index) => {
+        console.log(`media ${index}`)
+        const mediaCard = mediasFactory(element);
         mediaCard.getUserMediasDOM();
     });
 };
