@@ -1,5 +1,6 @@
 import { photographerFactory } from "../factories/photographer.js";
 import { mediasFactory } from "../factories/medias.js";
+import { lightboxFactory } from "../factories/lightbox.js";
 import { api } from "../utils/api.js";
 
 async function displayHeader(photographer) {
@@ -35,7 +36,7 @@ function displayMedias(media) {
     const photographerModel = mediasFactory(media);
     // boucle ici
     media.forEach( (element, index) => {
-        console.log(`media ${index}`)
+        // console.log(`media ${index}`)
         const mediaCard = mediasFactory(element);
         mediaCard.getUserMediasDOM();
     });
@@ -48,6 +49,13 @@ async function displayUserSpotlight(photographer) {
     photographerSpot.appendChild(userSpotlight);
 }
 
+// async function displayLightbox() {
+//     const LightboxMedia = document.querySelector('body');
+//     const mediaModel = await lightboxFactory(media);
+//     LightboxMedia.appendChild(mediaModel);
+// };
+
+
 async function init() {
     const id = getIdUrlParam();
     document.photographerId = id;
@@ -56,6 +64,7 @@ async function init() {
     displayHeader(photographerUserInfo);
     displayMedias(mediaUserInfo);
     displayUserSpotlight(photographerUserInfo);
+    // displayLightbox();
 };
 
 init();

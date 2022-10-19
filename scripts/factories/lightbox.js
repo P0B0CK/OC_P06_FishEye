@@ -1,38 +1,38 @@
 /**
  * 
- * @returns event modal 
+ * @returns Structure de la Lightbox 
  */
 
 
- function lightboxFactory(data) {
+ export function lightboxFactory(data) {
     const { id, photographerId, title, image, video, likes, date, price } = data;
     
     function lightboxDOM() {
 
         const  lightboxModal = document.createElement("div");
-        lightboxModal.setAttribute("id", "lightbox-modal");
-        lightboxModal.setAttribute("role", "dialog");
-        lightboxModal.setAttribute("aria-label", "image closeup view");
+            lightboxModal.setAttribute("id", "lightbox-modal");
+            lightboxModal.setAttribute("role", "dialog");
+            lightboxModal.setAttribute("aria-label", "image closeup view");
 
             const lightbox = document.createElement("div");
-            lightbox.setAttribute("class", "lightbox");
+                lightbox.setAttribute("class", "lightbox");
 
                 const lbSwitchLeft = document.createElement("div");
-                lbSwitchLeft.setAttribute("class", "lbSwitch");
-                lbSwitchLeft.setAttribute("class", "lbIcons");
-                lbSwitchLeft.setAttribute("aria-label", "Previous image");
-                lbSwitchLeft.innerHTML = `<i class="fa-sharp fa-solid fa-chevron-left"></i>`;
+                    lbSwitchLeft.setAttribute("class", "lbSwitch");
+                    lbSwitchLeft.setAttribute("class", "lbIcons");
+                    lbSwitchLeft.setAttribute("aria-label", "Previous image");
+                    lbSwitchLeft.innerHTML = `<i class="fa-sharp fa-solid fa-chevron-left"></i>`;
 
                 const lbMedia = document.createElement("div");
-                lbMedia.setAttribute("clasms", "lbMedia");
-                    const MediaPlayer = document.createElement("div");
-                    lbMedia.setAttribute("class", "MediaPlayer");
-                    const MediaTitle = document.createElement("div");
-                    lbMedia.setAttribute("class", "MediaTitle");
-                        lbMedia.appendChild(MediaPlayer);
-                        lbMedia.appendChild(MediaTitle);
+                    lbMedia.setAttribute("class", "lbMedia");
+                        const MediaPlayer = document.createElement("div");
+                            lbMedia.setAttribute("class", "MediaPlayer");
+                        const MediaTitle = document.createElement("div");
+                            lbMedia.setAttribute("class", "MediaTitle");
+                                lbMedia.appendChild(MediaPlayer);
+                                lbMedia.appendChild(MediaTitle);
 
-                const lbSwitchRight = Document.createElement("div");
+                const lbSwitchRight = document.createElement("button");
                 lbSwitchRight.setAttribute("class", "lbSwitch");
                 lbSwitchRight.setAttribute("class", "lbIcons");
                 lbSwitchRight.setAttribute("aria-label", "Next image");
@@ -51,5 +51,5 @@
         lightbox.appendChild(lbClose);
     };
 
-    return lightboxDOM, openLightbox, closeLightbox;
+    return { id, photographerId, title, image, video, likes, date, price, lightboxDOM };
 }
