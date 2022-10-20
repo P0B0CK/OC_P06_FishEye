@@ -9,16 +9,29 @@ const LbMedia = document.querySelector('.mediaPlayer'); // Place in currentMedia
 
 let mediaArray; // New array content index, id, image, video, title
 
+export function lightbox(data, index) {
+
+    function openLightbox() {
+        lightboxModal.style.display = "block";
+        
+        const mediaImage = imagesFactory(data[index]);
+        const mediaVideo = videosFactory(data[index]);
+        const mediaContent = data[index].image ? mediaImage.getImageDOM() : mediaVideo.getVideoDOM();
+        LbMedia.innerHTML = mediaContent;
+    };
+    return { openLightbox };
+}
 
 // Open Lightbox
 function openLightbox() {
     lightboxModal.style.display = "block";
-    
+
     function getMediaIndex() {
-        
+
+        console.log("OK !");
+
         mediaContent.forEach( mediaCurrent => mediaCurrent.addEventListener('click', e => {
             e.preventDefault();
-            console.log('Yop');
             // if (mediaContent === imagesFactory) {
             //     return console.log(mediaCurrent.src);
             // }
@@ -78,3 +91,27 @@ document.openLightbox = openLightbox;
 //         return console.log("ERROR : Can't load file ! :(")
 //     };
 // };
+
+
+
+
+// ECRITURE
+//
+//
+// ma_fonction_douverture()
+// ouvre la modale Lightbox
+//
+//
+// Quand "ma_fonction_douverture()" a été activée
+// function openLightbox() { lightboxModal.style.display = "block"};
+
+// Déclenchement au clic sur un media
+// J'execute une fonction getMedia...
+// media.addEventListener('click', getMediaIndex())
+
+// Au clic récupère l'index (position des medias) et restitue l'id de la source
+// A l'intérieur du dom
+//
+//
+// ma_fonction_de_fermeture
+// ferme la modale Lightbox

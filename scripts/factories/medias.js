@@ -1,3 +1,4 @@
+import { lightbox } from "../utils/modalLightbox.js";
 import { imagesFactory } from "./image.js";
 import { videosFactory } from "./video.js";
 
@@ -7,16 +8,42 @@ import { videosFactory } from "./video.js";
  * @returns 
  */
 
-export function mediasFactory(data) {
+export function mediasFactory(data, media, index) {
     const { id, photographerId, title, image, video, likes, date, price } = data;
     
     function getUserMediasDOM(){
-        const mediaSection = document.querySelector(".media-section");
+    
         const mediaImage = imagesFactory(data);
         const mediaVideo = videosFactory(data);
-        const mediaFormat = data.image ? mediaSection.appendChild(mediaImage.getImageDOM()) : mediaSection.appendChild(mediaVideo.getVideoDOM());
+        const mediaContent = data.image ? mediaImage.getImageDOM() : mediaVideo.getVideoDOM();
+        // Create media container :
+        const mediaContainer = document.createElement('div');
+        mediaContainer.setAttribute('class', 'mediaEvent mediaContent');
+        mediaContainer.innerHTML= mediaContent;
+        
+        mediaContainer.addEventListener('click', () => {
+        //Lightbox;
+        const lb = lightbox(media, index);
+        lb.openLightbox();
+          });
+          
+        // Create legend container :
+        const mediaLegend = document.createElement('div');
+        mediaLegend.setAttribute('class', 'card-legend');
+        mediaLegend.innerHTML = `<h4 class="cardTitle">${title}</h4>
+        <p class="cardNbrLikes">${likes}</p><i class="fa-sharp fa-solid fa-heart"></i>`;
 
-        return mediaFormat;
+
+        const mediaArticle = document.createElement('article');
+        mediaArticle.setAttribute('class', 'media-card');
+        mediaArticle.appendChild(mediaContainer);
+        mediaArticle.appendChild(mediaLegend);
+
+        //     <div class="mediaEvent mediaContent" onclick="openLightbox()">
+    //     <img src="assets/photographers/${photographerId}/${image}"/>
+    // </div>
+
+        return mediaArticle;
     };
     
     return { id, photographerId, title, image, likes, date, price, getUserMediasDOM};
