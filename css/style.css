@@ -133,9 +133,6 @@ h4 {
 
 /*   SELECTED FILTER   */
 
-.filter-section {
-    margin: 20px 0 0;
-}
 
 .filter-section label {
     font-size: 18px;
@@ -144,14 +141,20 @@ h4 {
 
 #selected-filter {
     background-color: #901C1C;
-    width: 170px;
+    margin-left : 15px;
+    padding : 20px;
+    border: none;
     border-radius: 5px;
+    width: 170px;
+    color: #FFFFFF;
+    font-weight: 700;
+    font-size: 18px;
 }
 
-#selected-filter option {
-    font-size: 18px;
-    font-weight: 700;
-    color: #FFFFFF;
+.selected-text {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: solid 1px white;
 }
 
 /*   GALERY CARD   */
@@ -221,6 +224,9 @@ h4 {
 
 #spotlight {
     display: flex;
+    position: relative;
+    left: -1px;
+    
 
     padding: 5px;
 

@@ -6,7 +6,7 @@ export function imagesFactory(data) {
         const mediaPictCard = document.createElement('article');
         mediaPictCard.setAttribute('class' , 'media-card');
         mediaPictCard.innerHTML =`
-        <div class="mediaEvent getMediaLink" onclick="openLightbox()">
+        <div class="mediaEvent mediaContent" onclick="openLightbox()">
             <img src="assets/photographers/${photographerId}/${image}"/>
         </div>
         <div class="card-legend">

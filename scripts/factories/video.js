@@ -6,7 +6,7 @@ export function videosFactory(data) {
         const mediaVidCard = document.createElement('article');
         mediaVidCard.setAttribute('class' , 'media-card');
         mediaVidCard.innerHTML =`
-            <div class="mediaEvent getMediaLink" onclick="openLightbox()">
+            <div class="mediaEvent mediaContent" onclick="openLightbox()">
                 <video width="350" height="300" controls>
                 <source src="assets/photographers/${photographerId}/${video}"" type=video/mp4>
                 ERROR to load file
