@@ -22,7 +22,7 @@ export function mediasFactory(data, media, index) {
         mediaContainer.innerHTML= mediaContent;
         
         mediaContainer.addEventListener('click', () => {
-        //Lightbox;
+        // Lightbox :
         const lb = lightbox(media, index);
         lb.openLightbox();
           });
