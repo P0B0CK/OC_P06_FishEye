@@ -204,6 +204,9 @@ h4 {
 }
 
 .cardNbrLikes{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     color: #901C1C;
     margin: 8px 0 0;
     font-size: 24px;
@@ -215,8 +218,8 @@ h4 {
     width : 17.5px;
     width : 18.35px;
     color: #901C1C;
-    margin: 8px 10px 0;
     font-size: 24px;
+    margin-left: 10px;
     transform: scaleX(-.9);
 }
 

@@ -4,12 +4,11 @@ import { videosFactory } from "../factories/video.js";
 
 const lightboxModal = document.getElementById("lightbox-modal"); // lightbox
 const mediaContent = document.querySelectorAll('.mediaContent'); //  Media source container 
-const mediaCurrent = mediaContent.children; // Media source image and video content
-const LbMedia = document.querySelector('.mediaPlayer'); // Place in currentMedia
+const LbMedia = document.querySelector('.mediaPlayer'); // Place in current Media Player
+const LbLegend = document.querySelector('.mediaTitle'); // Place in current Legend Media
 
-let mediaArray; // New array content index, id, image, video, title
 
-export function lightbox(data, index) {
+export function lightbox(data, index, title) {
 
     function openLightbox() {
         lightboxModal.style.display = "block";
