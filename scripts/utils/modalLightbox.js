@@ -21,21 +21,7 @@ export function lightbox(data, index, title) {
         const mediaContent = data[index].image ? mediaImage.getImageDOM() : mediaVideo.getVideoDOM();
         LbMedia.innerHTML = mediaContent;
     };
-
-    // function sortFocusablesLightbox () {
-    //     focusablesLightbox.sort(function (a, b) {
-    //       const x = a.getAttribute('tabindex')
-    //       const y = b.getAttribute('tabindex')
-    //       if (x < y) {
-    //         return -1
-    //       }
-    //       if (x > y) {
-    //         return 1
-    //       }
-    //       return 0
-    //     })
-    //   }
-
+    
     function nextMedia() {
         if (mediaContent.data[index] < mediaContent.data[index +1]) {
             return mediaContent.data[index +1];
@@ -43,8 +29,8 @@ export function lightbox(data, index, title) {
         if (mediaContent.data[index] > mediaContent.data[index -1]) {
             return mediaContent.data[index -1];
         }
-    }
-
+    };
+    
     return { openLightbox, nextMedia };
 }
 

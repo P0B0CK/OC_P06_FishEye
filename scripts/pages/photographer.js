@@ -32,16 +32,16 @@ export const getMediaUserInfos = async (id) => {
     return mediaUserInfos;
 };
 
+// Display each medias in media-section
 export function displayMedias(media) {
-    // const photographerModel = mediasFactory(media);
     const mediaSection = document.querySelector('.media-section');
-    let index = 0;
+    let i = 0;
 
     // boucle ici
     media.forEach( (element, index) => {
-        //console.log(`media ${index}`)
         const mediaCard = mediasFactory(element, media, index);
         mediaSection.appendChild(mediaCard.getUserMediasDOM());
+        media
         index++;
     });
 };
