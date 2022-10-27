@@ -23,7 +23,7 @@ export function mediasFactory(data, media, index) {
         mediaContainer.innerHTML= mediaContent;
         
         /**
-         * @param {EventListener} click on media card to dsplay LB   
+         * @param {EventListener} click on media card to display LB   
          */
         mediaContainer.addEventListener('click', () => {
         // Open Lightbox :
@@ -41,11 +41,13 @@ export function mediasFactory(data, media, index) {
         mediaTitle.innerHTML = `${title}`;
         mediaLegend.appendChild(mediaTitle);
         
+
         // Create legend number of likes
         const mediaNbrLikes = document.createElement('p');
         mediaNbrLikes.setAttribute('class', 'cardNbrLikes');
         mediaNbrLikes.innerHTML = `${likes}` + `<i class="fa-sharp fa-solid fa-heart"></i>`;
         mediaLegend.appendChild(mediaNbrLikes);
+
 
         const mediaArticle = document.createElement('article');
         mediaArticle.setAttribute('class', 'media-card');

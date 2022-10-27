@@ -34,6 +34,7 @@
     width: 60px;
     height: 60px;
     color : #901C1C;
+    cursor: pointer;
     font-size: 50px;
     background-color: white;
     border: none;
@@ -85,4 +86,8 @@
 
 .mediaTitle {
 height: 100px;
+}
+
+.hiddenMedia {
+    display: none;
 }

@@ -2,6 +2,7 @@ import { photographerFactory } from "../factories/photographer.js";
 import { mediasFactory } from "../factories/medias.js";
 import { lightboxFactory } from "../factories/lightbox.js";
 import { api } from "../utils/api.js";
+import { initLb } from "../utils/modalLightbox.js";
 
 async function displayHeader(photographer) {
     const photographerHeader = document.querySelector('.photograph-header');
@@ -37,7 +38,6 @@ export function displayMedias(media) {
     const mediaSection = document.querySelector('.media-section');
     let i = 0;
 
-    // boucle ici
     media.forEach( (element, index) => {
         const mediaCard = mediasFactory(element, media, index);
         mediaSection.appendChild(mediaCard.getUserMediasDOM());
@@ -53,11 +53,6 @@ async function displayUserSpotlight(photographer) {
     photographerSpot.appendChild(userSpotlight);
 }
 
-// async function displayLightbox() {
-//     const LightboxMedia = document.querySelector('body');
-//     const mediaModel = await lightboxFactory(media);
-//     LightboxMedia.appendChild(mediaModel);
-// };
 
 
 async function init() {
@@ -68,7 +63,7 @@ async function init() {
     displayHeader(photographerUserInfo);
     displayMedias(mediaUserInfo);
     displayUserSpotlight(photographerUserInfo);
-    // displayLightbox();
+    initLb(mediaUserInfo);
 };
 
 init();
