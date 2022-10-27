@@ -10,6 +10,9 @@ const LbLegend = document.querySelector('.mediaTitle'); // Place in current Lege
 
 export function lightbox(data, index, title) {
 
+    /**
+     * 
+     */
     function openLightbox() {
         lightboxModal.style.display = "block";
         
@@ -18,99 +21,47 @@ export function lightbox(data, index, title) {
         const mediaContent = data[index].image ? mediaImage.getImageDOM() : mediaVideo.getVideoDOM();
         LbMedia.innerHTML = mediaContent;
     };
-    return { openLightbox };
+
+    // function sortFocusablesLightbox () {
+    //     focusablesLightbox.sort(function (a, b) {
+    //       const x = a.getAttribute('tabindex')
+    //       const y = b.getAttribute('tabindex')
+    //       if (x < y) {
+    //         return -1
+    //       }
+    //       if (x > y) {
+    //         return 1
+    //       }
+    //       return 0
+    //     })
+    //   }
+
+    function nextMedia() {
+        if (mediaContent.data[index] < mediaContent.data[index +1]) {
+            return mediaContent.data[index +1];
+        }
+        if (mediaContent.data[index] > mediaContent.data[index -1]) {
+            return mediaContent.data[index -1];
+        }
+    }
+
+    return { openLightbox, nextMedia };
 }
 
-// Open Lightbox
+/**
+ *  @param {} event Open Lightbox
+ */
 function openLightbox() {
     lightboxModal.style.display = "block";
-
-    function getMediaIndex() {
-
-        console.log("OK !");
-
-        mediaContent.forEach( mediaCurrent => mediaCurrent.addEventListener('click', e => {
-            e.preventDefault();
-            // if (mediaContent === imagesFactory) {
-            //     return console.log(mediaCurrent.src);
-            // }
-            // else if (mediaContent === videosFactory) {
-            //     return (mediaCurrent.src);
-            // }
-            // else {
-            //     return console.log('Nope')
-            // }
-        })); 
-    };
-    
-    return getMediaIndex();
 };
 
-// close Lightbox :: OK
+/**
+ * 
+ * @param {} event Close Lightbox
+ */
 function closeLightbox() {
     lightboxModal.style.display = "none";
 };
 
-
 document.closeLightbox = closeLightbox;
 document.openLightbox = openLightbox;
-
-
-// function displayLightbox() {
-//     mediaLinks.forEach(mediaLinks => mediaLinks.addEventListener('click', e => {
-//         e.preventDefault()
-//         new lightboxModal(e.currentTarget.getAttribute('href'))
-//     }));
-// };
-
-// function getMediaType() {
-//     getIndexOf = mediaLinks.children[index];
-//     getIndexOf.forEach( (elt, index) => {
-//         console.log(`media ${index}`)
-//     })
-    
-//     return 
-// }
-
-
-// media.forEach( (element, index) => {
-//     const mediaCard = mediasFactory(element);
-//     mediaCard.getUserMediasDOM();
-// }); 
-// LbMedia.appendChild();
-// return console.log(`media ${index}`);
-// mediaLinks.onclick = (elt, index, ) => {
-//     if (mediaLinks.children === media.${image}) {
-//         return media.${image};
-//     };
-//     else if (mediaLinks.children === media.${video}) {
-//         return media.${video};
-//     };
-//     else {
-//         return console.log("ERROR : Can't load file ! :(")
-//     };
-// };
-
-
-
-
-// ECRITURE
-//
-//
-// ma_fonction_douverture()
-// ouvre la modale Lightbox
-//
-//
-// Quand "ma_fonction_douverture()" a été activée
-// function openLightbox() { lightboxModal.style.display = "block"};
-
-// Déclenchement au clic sur un media
-// J'execute une fonction getMedia...
-// media.addEventListener('click', getMediaIndex())
-
-// Au clic récupère l'index (position des medias) et restitue l'id de la source
-// A l'intérieur du dom
-//
-//
-// ma_fonction_de_fermeture
-// ferme la modale Lightbox
