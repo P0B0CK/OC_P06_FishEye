@@ -60,14 +60,42 @@ function closeLightbox() {
 
 prevBtn.addEventListener('click', () => {
     const lbListMedias = document.querySelectorAll('.lbMediaElt');
-    lbListMedias[lightboxModal.dataset.current].classList.add('hiddenMedia'); // Hide all medias current switch
-    // tester current elt = 0 alors 0 - 1 = 10.
-    // if current media = -1 alors -1 = array.length max
-
-    // Decrement le data-index
-    lbListMedias[lightboxModal.dataset.current - 1].classList.remove('hiddenMedia'); //
-    lightboxModal.dataset.current = lightboxModal.dataset.current - 1;
+    lbListMedias[lightboxModal.dataset.current].classList.add('hiddenMedia'); // Retire l'invisibilité du média
     
+    // tester current elt = 0 alors 0 - 1 = 10.
+    // (SI) INDEX média actif est égal à -1...
+    if (lightboxModal.dataset.current === -1) {
+        lbListMedias.length.classList.remove('hiddenMedia');
+        lightboxModal.dataset.current = lightboxModal.dataset.length;
+        console.log('charge le dernier');
+    }   
+        // (SINON SI)  INDEX media actif DIFFERENT de l'INDEX media position - 1
+        else if (lightboxModal.dataset.current !== lightboxModal.dataset.current-1){
+            // DECREMENT le dataset index du média
+            lbListMedias[lightboxModal.dataset.current -1].classList.remove('hiddenMedia'); // Retire l'invisibilité du média
+            lightboxModal.dataset.current = lightboxModal.dataset.current -1;
+            console.log('Decrementation');
+        };
+});
+
+nextBtn.addEventListener('click', () => {
+    const lbListMedias = document.querySelectorAll('.lbMediaElt');
+    lbListMedias[lightboxModal.dataset.current].classList.add('hiddenMedia'); // Retire l'invisibilité du média
+    
+    // tester current elt = 0 alors 0 - 1 = 10.
+    // (SI) INDEX média actif est égal à -1...
+    if (lightboxModal.dataset.current === -1) {
+        lbListMedias.length.classList.remove('hiddenMedia');
+        lightboxModal.dataset.current = lightboxModal.dataset.length;
+        console.log('charge le dernier');
+    }   
+        // (SINON SI)  INDEX media actif DIFFERENT de l'INDEX media position + 1
+        else if (lightboxModal.dataset.current !== lightboxModal.dataset.current+1){
+            // INCREMENT le dataset index du média
+            lbListMedias[lightboxModal.dataset.current +1].classList.remove('hiddenMedia'); // Retire l'invisibilité du média
+            lightboxModal.dataset.current = lightboxModal.dataset.current +1;
+            console.log('Incrementation');
+        };
 });
 
 document.closeLightbox = closeLightbox;
