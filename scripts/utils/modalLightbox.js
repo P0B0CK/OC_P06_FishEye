@@ -12,36 +12,18 @@ const prevBtn = document.querySelector('.prevBtn');
 const nextBtn = document.querySelector('.nextBtn');
 
 
-export function lightbox(data, index) {
+export function lightbox(data , index) {
     
-    /**
-     * 
-     */
     function openLightbox() {
         lightboxModal.style.display = "block";
+
         const lbListMedias = document.querySelectorAll('.lbMediaElt');
-        lbListMedias[index].classList.remove('hiddenMedia');
-        lightboxModal.dataset.current = index;
+        lbListMedias[index].classList.remove('hiddenMedia'); // Show all elt
+        lightboxModal.dataset.current = index; // Give index of selected elt 
     };
     
-    function switchMedia(media, index) {
-        console.log('Acqui')
-        let i = media[index];
-
-        prevBtn.addEventListener('click', () => {
-            if (i < i.length) {
-                return media[index++];
-            } else if (i === i) {
-                return media[index - 1];
-            } else {
-                return console.log('Error Prev BTN')
-            };
-        });
-
-    };
-    
-    return { openLightbox, switchMedia };
-}
+    return openLightbox();
+};
 
 export function initLb(media) {
     media.map((elt, index) => {
@@ -73,37 +55,20 @@ function openLightbox() {
 function closeLightbox() {
     const lbListMedias = document.querySelectorAll('.lbMediaElt');
     lightboxModal.style.display = "none";
-    lbListMedias[lightboxModal.dataset.current].classList.add('hiddenMedia');
+    lbListMedias[lightboxModal.dataset.current].classList.add('hiddenMedia'); 
 };
 
 prevBtn.addEventListener('click', () => {
     const lbListMedias = document.querySelectorAll('.lbMediaElt');
-    lbListMedias[lightboxModal.dataset.current].classList.add('hiddenMedia');
+    lbListMedias[lightboxModal.dataset.current].classList.add('hiddenMedia'); // Hide all medias current switch
     // tester current elt = 0 alors 0 - 1 = 10.
-    // if current media = -1 alors -1 = array.length max 
-    lbListMedias[lightboxModal.dataset.current - 1].classList.remove('hiddenMedia');
+    // if current media = -1 alors -1 = array.length max
+
+    // Decrement le data-index
+    lbListMedias[lightboxModal.dataset.current - 1].classList.remove('hiddenMedia'); //
     lightboxModal.dataset.current = lightboxModal.dataset.current - 1;
     
 });
 
 document.closeLightbox = closeLightbox;
 document.openLightbox = openLightbox;
-
-
-
-// nextBtn.addEventListener('click', () => {
-//     if (i > i.length) {
-//         return data[index--];
-//     } else if (i === i) {
-//         return data[index + 1];
-//     } else {
-//         return console.log('Error Next BTN')
-//     };
-// });
-
-// if (mediaContent.data[index] < mediaContent.data[index +1]) {
-//     return mediaContent.data[index +1];
-// }
-// if (mediaContent.data[index] > mediaContent.data[index -1]) {
-//     return mediaContent.data[index -1];
-// }
