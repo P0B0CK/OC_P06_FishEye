@@ -94,15 +94,16 @@ nextBtn.addEventListener('click', () => {
 
     
     if (lbListMedias[lightboxModal.dataset.current] < (lbListMedias.length-1)) {
-        lbListMedias[currentIndex].classList.remove('hiddenMedia'); // Retire l'invisibilité du média
+        lbListMedias[lightboxModal.dataset.current+1].classList.remove('hiddenMedia'); // Retire l'invisibilité du média
         lightboxModal.dataset.current = lightboxModal.dataset.current+1;
         
         console.log( currentIndex + ' / ' + nextIndex)
     }
         // SINON SI (index Actuel) EQUIVAUT à (index Max) 
         else if (lbListMedias[lightboxModal.dataset.current] === (lbListMedias.length-1)) {
-            lbListMedias[currentIndex].classList.remove('hiddenMedia'); // Retire l'invisibilité du média
-            lightboxModal.dataset.current = lightboxModal.dataset.current+1;
+            lbListMedias[lightboxModal.dataset.current].classList.add('hiddenMedia');
+            lbListMedias[lightboxModal.dataset=0].classList.remove('hiddenMedia'); // Retire l'invisibilité du média
+            lightboxModal.dataset.current = (lightboxModal.dataset=0);
             
             console.log( currentIndex + ' / ' + nextIndex);
         }
