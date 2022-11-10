@@ -180,6 +180,7 @@ h4 {
     background-color: #C4C4C4;
     object-fit: cover;
     border-radius: 5px;
+    cursor: pointer;
 }
 
 .media-legend {
@@ -227,8 +228,9 @@ h4 {
 
 #spotlight {
     display: flex;
-    position: relative;
-    left: -1px;
+    position: fixed;
+    right: 100px;
+    bottom: 0;
     
 
     padding: 5px;
