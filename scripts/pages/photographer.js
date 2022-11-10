@@ -54,7 +54,6 @@ async function displayUserSpotlight(photographer) {
 }
 
 
-
 async function init() {
     const id = getIdUrlParam();
     document.photographerId = id;
@@ -67,3 +66,8 @@ async function init() {
 };
 
 init();
+
+
+// sortselect.addEventListener("change", ({ target })> {
+//     //// 
+//   });

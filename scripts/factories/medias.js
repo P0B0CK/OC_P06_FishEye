@@ -43,9 +43,21 @@ export function mediasFactory(data, media, index) {
         
 
         // Create legend number of likes
-        const mediaNbrLikes = document.createElement('p');
+        const mediaNbrLikes = document.createElement('p'); // !!! changer pour SPAN ou DIV
         mediaNbrLikes.setAttribute('class', 'cardNbrLikes');
-        mediaNbrLikes.innerHTML = `${likes}` + `<i class="fa-sharp fa-solid fa-heart"></i>`;
+        mediaNbrLikes.dataset.liked = "true";
+        mediaNbrLikes.innerHTML = `<span class="likes-count">${likes}</span><i class="fa-sharp fa-solid fa-heart"></i>`;
+        mediaNbrLikes.addEventListener('click', () => {
+            if (mediaNbrLikes.dataset.liked == "true") {
+                mediaNbrLikes.querySelector('.likes-count').innerHTML--;
+                mediaNbrLikes.dataset.liked = "false";
+                mediaNbrLikes.querySelector('i').classList.replace('fa-solid', 'fa-regular');
+            } else {
+                mediaNbrLikes.querySelector('.likes-count').innerHTML++;
+                mediaNbrLikes.dataset.liked = "true";
+                mediaNbrLikes.querySelector('i').classList.replace('fa-regular', 'fa-solid');
+            }  
+        });
         mediaLegend.appendChild(mediaNbrLikes);
 
 

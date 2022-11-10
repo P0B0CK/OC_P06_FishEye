@@ -57,54 +57,7 @@ function closeLightbox() {
  * @param {MouseEvent/KeyBoard} event
  */
 
-// function previousMedia() {
-//     const lbListMedias = document.querySelectorAll('.lbMediaElt');
-//     //Index du média affiché
-//     let currentIndex = Number(lightboxModal.dataset.current);
-//     //calcul de l index du prochain média à afficher
-//     let nextIndex = currentIndex==0 ? lbListMedias.length-1 : currentIndex -1;
-
-//     prevBtn.addEventListener('click', () => {
-//         // PROCHAIN INDEX  == Lorsque l'index est égal à 0 EST VRAI retourne L'IndexMax SINON décrémente l'index de -1;
-//         //Masquer le media affiché
-//         lbListMedias[currentIndex].classList.add('hiddenMedia'); // 
-//         //afficher le prochain média
-//         lbListMedias[nextIndex].classList.remove('hiddenMedia');
-//         //mise à jour de l index du media affiché dans les propriétés de la lightbox
-//         lightboxModal.dataset.current = nextIndex;
-//     });
-// };
-
-// function nextMedia() {
-//     const lbListMedias = document.querySelectorAll('.lbMediaElt');
-//     //Index du média affiché
-//     let currentIndex = Number(lightboxModal.dataset.current);
-//     //calcul de l index du prochain média à afficher
-//     let nextIndex = currentIndex==lbListMedias.length-1 ? 0 : currentIndex +1;
-    
-//     nextBtn.addEventListener('click', () => {
-//         // PROCHAIN INDEX  == Lorsque l'index est égal à l'index max EST VRAI retourne L'IndexMin SINON incrémente l'index de +1;
-//         //Masquer le media affiché
-//         lbListMedias[currentIndex].classList.add('hiddenMedia');
-//         //afficher le prochain média
-//         lbListMedias[nextIndex].classList.remove('hiddenMedia');
-//         //mise à jour de l index du media affiché dans les propriétés de la lightbox
-//         lightboxModal.dataset.current = nextIndex;
-//     });
-// };
-    
-document.addEventListener('keydown', (e) => {
-    
-    if (e.key === 'Escape') {
-        closeLightbox();
-    }
-        else {
-            return console.log('Erreur :: Pas d\'event lié sur ' + e.key )
-        }
-});
-
-
-prevBtn.addEventListener('click', () => {
+function previousMedia() {
     const lbListMedias = document.querySelectorAll('.lbMediaElt');
     //Index du média affiché
     let currentIndex = Number(lightboxModal.dataset.current);
@@ -117,14 +70,14 @@ prevBtn.addEventListener('click', () => {
     lbListMedias[nextIndex].classList.remove('hiddenMedia');
     //mise à jour de l index du media affiché dans les propriétés de la lightbox
     lightboxModal.dataset.current = nextIndex;
-    });
+};
 
+prevBtn.addEventListener('click', previousMedia);
 
-
-nextBtn.addEventListener('click', () => {
+function nextMedia() {
     const lbListMedias = document.querySelectorAll('.lbMediaElt');
     //Index du média affiché
-     let currentIndex = Number(lightboxModal.dataset.current);
+    let currentIndex = Number(lightboxModal.dataset.current);
     //calcul de l index du prochain média à afficher
     let nextIndex = currentIndex==lbListMedias.length-1 ? 0 : currentIndex +1;
     // PROCHAIN INDEX  == Lorsque l'index est égal à l'index max EST VRAI retourne L'IndexMin SINON incrémente l'index de +1;
@@ -134,7 +87,55 @@ nextBtn.addEventListener('click', () => {
     lbListMedias[nextIndex].classList.remove('hiddenMedia');
     //mise à jour de l index du media affiché dans les propriétés de la lightbox
     lightboxModal.dataset.current = nextIndex;
-    });
+};
+
+nextBtn.addEventListener('click', nextMedia);
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        closeLightbox();
+    } else if (e.key === 'ArrowLeft') {
+        previousMedia();
+    } else if  (e.key === 'ArrowRight') {
+        nextMedia();
+    }
+        else {
+            return console.log('Erreur :: Pas d\'event lié sur ' + e.key )
+        }
+});
+
+
+// prevBtn.addEventListener('click', () => {
+//     const lbListMedias = document.querySelectorAll('.lbMediaElt');
+//     //Index du média affiché
+//     let currentIndex = Number(lightboxModal.dataset.current);
+//     //calcul de l index du prochain média à afficher
+//     let nextIndex = currentIndex==0 ? lbListMedias.length-1 : currentIndex -1;
+//     // PROCHAIN INDEX  == Lorsque l'index est égal à 0 EST VRAI retourne L'IndexMax SINON décrémente l'index de -1;
+//     //Masquer le media affiché
+//     lbListMedias[currentIndex].classList.add('hiddenMedia'); // 
+//     //afficher le prochain média
+//     lbListMedias[nextIndex].classList.remove('hiddenMedia');
+//     //mise à jour de l index du media affiché dans les propriétés de la lightbox
+//     lightboxModal.dataset.current = nextIndex;
+//     });
+
+
+
+// nextBtn.addEventListener('click', () => {
+//     const lbListMedias = document.querySelectorAll('.lbMediaElt');
+//     //Index du média affiché
+//      let currentIndex = Number(lightboxModal.dataset.current);
+//     //calcul de l index du prochain média à afficher
+//     let nextIndex = currentIndex==lbListMedias.length-1 ? 0 : currentIndex +1;
+//     // PROCHAIN INDEX  == Lorsque l'index est égal à l'index max EST VRAI retourne L'IndexMin SINON incrémente l'index de +1;
+//     //Masquer le media affiché
+//     lbListMedias[currentIndex].classList.add('hiddenMedia');
+//     //afficher le prochain média
+//     lbListMedias[nextIndex].classList.remove('hiddenMedia');
+//     //mise à jour de l index du media affiché dans les propriétés de la lightbox
+//     lightboxModal.dataset.current = nextIndex;
+//     });
 
 
 document.closeLightbox = closeLightbox;

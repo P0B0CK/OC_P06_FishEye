@@ -92,7 +92,7 @@ export function photographerFactory(data) {
         spotlight.appendChild(priceSpot);
 
         likesSpot.innerHTML=`<p>XXX XXX<i class="fa-sharp fa-solid fa-heart black"></p>`;
-        priceSpot.innerHTML=`<p>${price}€ / jour</p>`;
+        priceSpot.innerHTML=`<p>${price}€ / jour</p>`; // !!!!! prevoir un SPAN
 
         return (spotlight);
     }
