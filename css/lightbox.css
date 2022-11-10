@@ -68,7 +68,7 @@
     padding: 10px;
 }
 
-.mediaPlayer {
+.media-player {
     height: 80%;
     border-radius: 5px;
     display: flex;
@@ -76,16 +76,12 @@
     justify-content: center;
 }
 
-.mediaPlayer img{
+.media-player img{
     width: auto;
     height: 100%;
     border-radius: 5px;
     object-fit: fill;
     object-position: center;
-}
-
-.mediaTitle {
-height: 100px;
 }
 
 .hiddenMedia {

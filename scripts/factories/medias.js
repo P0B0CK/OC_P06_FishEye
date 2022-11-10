@@ -33,11 +33,11 @@ export function mediasFactory(data, media, index) {
           
         // Create legend container :
         const mediaLegend = document.createElement('div');
-        mediaLegend.setAttribute('class', 'card-legend');
+        mediaLegend.setAttribute('class', 'media-legend');
         
         // Create legend title
         const mediaTitle = document.createElement('h4');
-        mediaTitle.setAttribute('class', 'cardTitle');
+        mediaTitle.setAttribute('class', 'media-title');
         mediaTitle.innerHTML = `${title}`;
         mediaLegend.appendChild(mediaTitle);
         
