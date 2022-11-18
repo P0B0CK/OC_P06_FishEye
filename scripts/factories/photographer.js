@@ -79,22 +79,49 @@ export function photographerFactory(data) {
             return photographContainer;
     }
 
-    function getUserSpotlightDOM() {
+    function getUserSpotlightDOM(data) {
+        // const { }
+        // const mediaCard = document.querySelector('article.media-card');
+        // mediaCard.forEach(elt => {
+        //     mediaCard.setAttribute('data-index', `${index}`);
+        // });
+        //
+        
+        
         const spotlight = document.createElement('span');
         const likesSpot = document.createElement('div');
         const priceSpot = document.createElement('div');
         
         spotlight.setAttribute('id', 'spotlight' );
         likesSpot.setAttribute('class', 'likes-spot');
-        priceSpot.setAttribute('class' , 'price-spot')
+        priceSpot.setAttribute('class' , 'price-spot');
         
         spotlight.appendChild(likesSpot);
         spotlight.appendChild(priceSpot);
+        
+        // Medias cards
+        const mediaSection = document.querySelector('.media-section');
+        // ELT contenant le nombre de like par media
+        const likesPerMedia = document.querySelector('.likes-count').innerHTML;
+        // Toutes les cartes de media            
+        const mediaCards = mediaSection.children
+        console.log(mediaCards)
+        
 
-        likesSpot.innerHTML=`<p>XXX XXX<i class="fa-sharp fa-solid fa-heart black"></p>`;
-        priceSpot.innerHTML=`<p>${price}€ / jour</p>`; // !!!!! prevoir un SPAN
+        // SOMME des likes par photographe
+        let likesSum = 0;
+    
+        // fonction de calcul  (addition) des likes
+        // retourne la somme de tout les likes
+        for(let i = 0 ; i <= mediaCards.length ; i++) {
+            likesSum += Number(likesPerMedia)
+            console.log(likesSum)
+        }        
 
-        return (spotlight);
+        likesSpot.innerHTML=`<span class="likes-total-count">${likesSum}</span><i class="fa-sharp fa-solid fa-heart black">`;
+        priceSpot.innerHTML=`<span>${price}€ / jour</span>`;
+
+        return ( spotlight );
     }
 
     return { name, picture, id, city, country, tagline, price, getUserCardDOM, getUserHeaderDOM, getUserSpotlightDOM };

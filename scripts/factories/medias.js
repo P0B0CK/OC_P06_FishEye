@@ -43,8 +43,8 @@ export function mediasFactory(data, media, index) {
         
 
         // Create legend number of likes
-        const mediaNbrLikes = document.createElement('p'); // !!! changer pour SPAN ou DIV
-        mediaNbrLikes.setAttribute('class', 'cardNbrLikes');
+        const mediaNbrLikes = document.createElement('div');
+        mediaNbrLikes.setAttribute('class', 'media-likes');
         mediaNbrLikes.dataset.liked = "true";
         mediaNbrLikes.innerHTML = `<span class="likes-count">${likes}</span><i class="fa-sharp fa-solid fa-heart"></i>`;
         mediaNbrLikes.addEventListener('click', () => {

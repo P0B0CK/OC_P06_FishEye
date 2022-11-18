@@ -100,42 +100,8 @@ document.addEventListener('keydown', (e) => {
         nextMedia();
     }
         else {
-            return console.log('Erreur :: Pas d\'event lié sur ' + e.key )
+            return console.log('NOT ASSIGN KEY : ' + e.key )
         }
 });
-
-
-// prevBtn.addEventListener('click', () => {
-//     const lbListMedias = document.querySelectorAll('.lbMediaElt');
-//     //Index du média affiché
-//     let currentIndex = Number(lightboxModal.dataset.current);
-//     //calcul de l index du prochain média à afficher
-//     let nextIndex = currentIndex==0 ? lbListMedias.length-1 : currentIndex -1;
-//     // PROCHAIN INDEX  == Lorsque l'index est égal à 0 EST VRAI retourne L'IndexMax SINON décrémente l'index de -1;
-//     //Masquer le media affiché
-//     lbListMedias[currentIndex].classList.add('hiddenMedia'); // 
-//     //afficher le prochain média
-//     lbListMedias[nextIndex].classList.remove('hiddenMedia');
-//     //mise à jour de l index du media affiché dans les propriétés de la lightbox
-//     lightboxModal.dataset.current = nextIndex;
-//     });
-
-
-
-// nextBtn.addEventListener('click', () => {
-//     const lbListMedias = document.querySelectorAll('.lbMediaElt');
-//     //Index du média affiché
-//      let currentIndex = Number(lightboxModal.dataset.current);
-//     //calcul de l index du prochain média à afficher
-//     let nextIndex = currentIndex==lbListMedias.length-1 ? 0 : currentIndex +1;
-//     // PROCHAIN INDEX  == Lorsque l'index est égal à l'index max EST VRAI retourne L'IndexMin SINON incrémente l'index de +1;
-//     //Masquer le media affiché
-//     lbListMedias[currentIndex].classList.add('hiddenMedia');
-//     //afficher le prochain média
-//     lbListMedias[nextIndex].classList.remove('hiddenMedia');
-//     //mise à jour de l index du media affiché dans les propriétés de la lightbox
-//     lightboxModal.dataset.current = nextIndex;
-//     });
-
 
 document.closeLightbox = closeLightbox;
