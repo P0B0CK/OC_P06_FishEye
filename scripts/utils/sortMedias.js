@@ -8,14 +8,20 @@ console.log(selectbox.options)
 // écouteur au changement d'état :
 selectbox.addEventListener('change', (e) => {
     const optionValue = selectbox.value;
+    const array1 = [1, 30, 4, 21, 100000];
+
 
     if (optionValue == 'popularity') {
-        return console.log('OK c\'est bien la popularité :P');
+        console.log('=> Order by popularity <=');
+        array1.sort((array1.index,) => {
+            a - b;
+        });
+        console.log(array1.sort());
     } else if (optionValue == 'date') {
-        return console.log('OK c\'est bien la date :P');
+       console.log('=> Order by date <=');
     } else if (optionValue == 'title') {
-        return console.log('OK c\'est bien le titre :P');
+       console.log('=> Order by title <=');
     } else {
-        return console.log('SORT issue');
+        return console.log('== SORT issue ==');
     }
 })
