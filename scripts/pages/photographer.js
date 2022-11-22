@@ -68,7 +68,6 @@ export function handleLikeMedia(mediaNbrLikes) {
     }  
 }
 
-
 async function init() {
     const id = getIdUrlParam();
     document.photographerId = id;

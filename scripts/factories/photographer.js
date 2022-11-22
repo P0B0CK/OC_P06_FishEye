@@ -79,14 +79,7 @@ export function photographerFactory(data) {
             return photographContainer;
     }
 
-    function getUserSpotlightDOM(data) {
-        // const { }
-        // const mediaCard = document.querySelector('article.media-card');
-        // mediaCard.forEach(elt => {
-        //     mediaCard.setAttribute('data-index', `${index}`);
-        // });
-        //
-        
+    function getUserSpotlightDOM(data) {        
         
         const spotlight = document.createElement('span');
         const likesSpot = document.createElement('div');
@@ -105,8 +98,6 @@ export function photographerFactory(data) {
         const likesCounters = document.querySelectorAll('.likes-count');
         // Toutes les cartes de media            
         const mediaCards = mediaSection.children
-        console.log(mediaCards)
-        
 
         // SOMME des likes par photographe
         let likesSum = 0;
@@ -115,8 +106,6 @@ export function photographerFactory(data) {
         // retourne la somme de tout les likes
         for(let i = 0 ; i < likesCounters.length ; i++) {
             likesSum += Number(likesCounters[i].innerHTML)
-            console.log(likesCounters[i].innerHTML)
-            console.log(likesSum)
         }        
 
         likesSpot.innerHTML=`<span class="likes-total-count">${likesSum}</span><i class="fa-sharp fa-solid fa-heart black">`;
