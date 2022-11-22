@@ -8,7 +8,7 @@ import { videosFactory } from "./video.js";
  * @returns 
  */
 
-export function mediasFactory(data, media, index) {
+export function mediasFactory(data, media, index, likeCallback) {
     const { id, photographerId, title, image, video, likes, date, price } = data;
     
     function getUserMediasDOM(){
@@ -48,15 +48,7 @@ export function mediasFactory(data, media, index) {
         mediaNbrLikes.dataset.liked = "true";
         mediaNbrLikes.innerHTML = `<span class="likes-count">${likes}</span><i class="fa-sharp fa-solid fa-heart"></i>`;
         mediaNbrLikes.addEventListener('click', () => {
-            if (mediaNbrLikes.dataset.liked == "true") {
-                mediaNbrLikes.querySelector('.likes-count').innerHTML--;
-                mediaNbrLikes.dataset.liked = "false";
-                mediaNbrLikes.querySelector('i').classList.replace('fa-solid', 'fa-regular');
-            } else {
-                mediaNbrLikes.querySelector('.likes-count').innerHTML++;
-                mediaNbrLikes.dataset.liked = "true";
-                mediaNbrLikes.querySelector('i').classList.replace('fa-regular', 'fa-solid');
-            }  
+            likeCallback(mediaNbrLikes);
         });
         mediaLegend.appendChild(mediaNbrLikes);
 

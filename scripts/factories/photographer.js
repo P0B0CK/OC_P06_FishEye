@@ -102,7 +102,7 @@ export function photographerFactory(data) {
         // Medias cards
         const mediaSection = document.querySelector('.media-section');
         // ELT contenant le nombre de like par media
-        const likesPerMedia = document.querySelector('.likes-count').innerHTML;
+        const likesCounters = document.querySelectorAll('.likes-count');
         // Toutes les cartes de media            
         const mediaCards = mediaSection.children
         console.log(mediaCards)
@@ -113,8 +113,9 @@ export function photographerFactory(data) {
     
         // fonction de calcul  (addition) des likes
         // retourne la somme de tout les likes
-        for(let i = 0 ; i <= mediaCards.length ; i++) {
-            likesSum += Number(likesPerMedia)
+        for(let i = 0 ; i < likesCounters.length ; i++) {
+            likesSum += Number(likesCounters[i].innerHTML)
+            console.log(likesCounters[i].innerHTML)
             console.log(likesSum)
         }        
 

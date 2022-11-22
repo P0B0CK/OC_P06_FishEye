@@ -133,6 +133,9 @@ h4 {
 
 /*   SELECTED FILTER   */
 
+.filter-section {
+    margin-top: 15px;
+}
 
 .filter-section label {
     font-size: 18px;
