@@ -18,7 +18,7 @@ export function lightbox(data , index) {
         lightboxModal.style.display = "block";
 
         const lbListMedias = document.querySelectorAll('.lbMediaElt');
-        lbListMedias[index].classList.remove('hiddenMedia'); // Show all elt
+        lbListMedias[index].classList.remove('hidden-media'); // Show all elt
         lightboxModal.dataset.current = index; // Give index of selected elt
     };
 
@@ -33,7 +33,7 @@ export function initLb(media) {
         const mediaContent = elt.image ? mediaImage.getImageDOM() : mediaVideo.getVideoDOM();
         const mediaContentTitle = elt.title;
         const lbMedia = `
-            <div class="lbMedia lbMediaElt hiddenMedia" data-index="${index}">
+            <div class="lbMedia lbMediaElt hidden-media" data-index="${index}">
                 <div class="media-player">${mediaContent}</div>
                 <div class="media-legend"><h4 class="media-title">${mediaContentTitle}</h4></div>
             </div>`;
@@ -49,7 +49,7 @@ export function initLb(media) {
 function closeLightbox() {
     const lbListMedias = document.querySelectorAll('.lbMediaElt');
     lightboxModal.style.display = "none";
-    lbListMedias[lightboxModal.dataset.current].classList.add('hiddenMedia'); 
+    lbListMedias[lightboxModal.dataset.current].classList.add('hidden-media'); 
 };
 
 
@@ -65,9 +65,9 @@ function previousMedia() {
     let nextIndex = currentIndex==0 ? lbListMedias.length-1 : currentIndex -1;
     // PROCHAIN INDEX  == Lorsque l'index est égal à 0 EST VRAI retourne L'IndexMax SINON décrémente l'index de -1;
     //Masquer le media affiché
-    lbListMedias[currentIndex].classList.add('hiddenMedia'); // 
+    lbListMedias[currentIndex].classList.add('hidden-media'); // 
     //afficher le prochain média
-    lbListMedias[nextIndex].classList.remove('hiddenMedia');
+    lbListMedias[nextIndex].classList.remove('hidden-media');
     //mise à jour de l index du media affiché dans les propriétés de la lightbox
     lightboxModal.dataset.current = nextIndex;
 };
@@ -82,9 +82,9 @@ function nextMedia() {
     let nextIndex = currentIndex==lbListMedias.length-1 ? 0 : currentIndex +1;
     // PROCHAIN INDEX  == Lorsque l'index est égal à l'index max EST VRAI retourne L'IndexMin SINON incrémente l'index de +1;
     //Masquer le media affiché
-    lbListMedias[currentIndex].classList.add('hiddenMedia');
+    lbListMedias[currentIndex].classList.add('hidden-media');
     //afficher le prochain média
-    lbListMedias[nextIndex].classList.remove('hiddenMedia');
+    lbListMedias[nextIndex].classList.remove('hidden-media');
     //mise à jour de l index du media affiché dans les propriétés de la lightbox
     lightboxModal.dataset.current = nextIndex;
 };
