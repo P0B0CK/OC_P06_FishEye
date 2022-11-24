@@ -3,6 +3,7 @@ import { mediasFactory } from "../factories/medias.js";
 import { lightboxFactory } from "../factories/lightbox.js";
 import { api } from "../utils/api.js";
 import { initLb } from "../utils/modalLightbox.js";
+import { sortMedia } from "../utils/sortMedias.js";
 
 async function displayHeader(photographer) {
     const photographerHeader = document.querySelector('.photograph-header');
@@ -51,7 +52,7 @@ async function displayUserSpotlight(photographer) {
     const photographerModel = await photographerFactory(photographer);
     const userSpotlight = photographerModel.getUserSpotlightDOM();
     photographerSpot.appendChild(userSpotlight);
-}
+};
 
 export function handleLikeMedia(mediaNbrLikes) {
     const likeTotalCount = document.querySelector('.likes-total-count');
@@ -66,10 +67,15 @@ export function handleLikeMedia(mediaNbrLikes) {
         mediaNbrLikes.querySelector('i').classList.replace('fa-regular', 'fa-solid');
         likeTotalCount.innerHTML++;
     }  
-}
+};
 
-async function displayMediaHandle() {
-}
+export function displayMediaBySelect(data) {
+    const apiMedia = await api();
+    const { media } = apiMedia.getMedia();
+    const sortMediaBy = await sortMedia();
+    const mediaUserInfos = media.filter(data => data.likes == likes);
+    return mediaUserInfos;
+};
 
 async function init() {
     const id = getIdUrlParam();
@@ -78,7 +84,7 @@ async function init() {
     const mediaUserInfo = await getMediaUserInfos(id);
     displayHeader(photographerUserInfo);
     displayMedias(mediaUserInfo);
-    displayMediaHandle(mediaUserInfo);
+    displayMediaBySelect(mediaUserInfo);
     displayUserSpotlight(photographerUserInfo);
     initLb(mediaUserInfo);
 };

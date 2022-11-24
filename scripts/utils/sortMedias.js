@@ -8,7 +8,7 @@ console.log('fonction sortMedia ici')
 
 const selectbox = document.getElementById('selected-filter');
 
-export function sortMedia() {};
+export async function sortMedia() {};
 
 // écouteur au changement d'état :
 selectbox.addEventListener('change', (e) => {
@@ -28,7 +28,7 @@ selectbox.addEventListener('change', (e) => {
     if (optionValue == 'popularity') {
         console.log('=> Order by popularity <=');
   
-      mediasArray.sort((a, b) => a - b);
+      mediasArray.sort((a, b) => b.likes - a.likes); // Du plus aimé au moins aimé
       console.log(mediasArray)
       // FONCTION TEST ALGO
       // array1.sort((a, b) => {
@@ -44,7 +44,7 @@ selectbox.addEventListener('change', (e) => {
     } else if (optionValue == 'date') {
       console.log('=> Order by date <=');
   
-      mediasArray.sort((a, b) => a.date - b.date);
+      mediasArray.sort((a, b) => b.date - a.date); // Du plus récent au plus ancien
       console.log(mediasArray)
         
       // FONCTION TEST ALGO
@@ -59,7 +59,7 @@ selectbox.addEventListener('change', (e) => {
     } else if (optionValue == 'title') {
       console.log('=> Order by title <=');
   
-      mediasArray.sort((a, b) => a.title - b.title);
+      mediasArray.sort((a, b) => a.title - b.title); // Par ordre alphabétique croissant
       console.log(mediasArray);
     } else {
       return console.log('== SORT issue ==');

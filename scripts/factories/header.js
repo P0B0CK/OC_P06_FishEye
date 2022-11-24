@@ -29,9 +29,8 @@ imgLogo.setAttribute('alt' , 'Logo de FishEye');
 divSearch.setAttribute('class', 'ban-search');
 //>>>>>>>>>>> NAV
 divNav.setAttribute('class', 'ban-nav');
-aPage.setAttribute('href' , 'photographer.html');
+aPage.setAttribute('href' , 'index.html');
 aPage.setAttribute('alt' , 'voir nos photographes');
-
 
 
 // CREATION DU HEADER
