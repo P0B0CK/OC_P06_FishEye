@@ -68,6 +68,9 @@ export function handleLikeMedia(mediaNbrLikes) {
     }  
 }
 
+async function displayMediaHandle() {
+}
+
 async function init() {
     const id = getIdUrlParam();
     document.photographerId = id;
@@ -75,6 +78,7 @@ async function init() {
     const mediaUserInfo = await getMediaUserInfos(id);
     displayHeader(photographerUserInfo);
     displayMedias(mediaUserInfo);
+    displayMediaHandle(mediaUserInfo);
     displayUserSpotlight(photographerUserInfo);
     initLb(mediaUserInfo);
 };
