@@ -69,14 +69,6 @@ export function handleLikeMedia(mediaNbrLikes) {
     }  
 };
 
-export function displayMediaBySelect(data) {
-    const apiMedia = await api();
-    const { media } = apiMedia.getMedia();
-    const sortMediaBy = await sortMedia();
-    const mediaUserInfos = media.filter(data => data.likes == likes);
-    return mediaUserInfos;
-};
-
 async function init() {
     const id = getIdUrlParam();
     document.photographerId = id;
@@ -84,7 +76,7 @@ async function init() {
     const mediaUserInfo = await getMediaUserInfos(id);
     displayHeader(photographerUserInfo);
     displayMedias(mediaUserInfo);
-    displayMediaBySelect(mediaUserInfo);
+    sortMedia(mediaUserInfo);
     displayUserSpotlight(photographerUserInfo);
     initLb(mediaUserInfo);
 };
