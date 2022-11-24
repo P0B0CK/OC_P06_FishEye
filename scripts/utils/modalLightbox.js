@@ -26,11 +26,12 @@ export function lightbox(data , index) {
 };
 
 export function initLb(media) {
+    lbContent.innerHTML = '';
     media.map((elt, index) => {
         
         const mediaImage = imagesFactory(elt);
         const mediaVideo = videosFactory(elt);
-        const mediaContent = elt.image ? mediaImage.getImageDOM() : mediaVideo.getVideoDOM();
+        const mediaContent = elt.image ? mediaImage.getImageDOM() : mediaVideo.getVideoLbDOM();
         const mediaContentTitle = elt.title;
         const lbMedia = `
             <div class="lbMedia lbMediaElt hidden-media" data-index="${index}">

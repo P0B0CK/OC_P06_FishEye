@@ -38,6 +38,7 @@ export const getMediaUserInfos = async (id) => {
 export function displayMedias(media) {
     const mediaSection = document.querySelector('.media-section');
     let i = 0;
+    mediaSection.innerHTML = '';
 
     media.forEach( (element, index) => {
         const mediaCard = mediasFactory(element, media, index, handleLikeMedia);
@@ -69,14 +70,25 @@ export function handleLikeMedia(mediaNbrLikes) {
     }  
 };
 
+async function handleOptionsChange() {
+    const id = getIdUrlParam();
+    const mediaUserInfo = await getMediaUserInfos(id);
+    sortMedia(mediaUserInfo);
+    displayMedias(mediaUserInfo);
+    initLb(mediaUserInfo);
+};
+
+const selectbox = document.getElementById('selected-filter');
+selectbox.addEventListener('change', handleOptionsChange);
+
 async function init() {
     const id = getIdUrlParam();
     document.photographerId = id;
     const photographerUserInfo = await getPhotographerUserInfos(id);
     const mediaUserInfo = await getMediaUserInfos(id);
     displayHeader(photographerUserInfo);
-    displayMedias(mediaUserInfo);
     sortMedia(mediaUserInfo);
+    displayMedias(mediaUserInfo);
     displayUserSpotlight(photographerUserInfo);
     initLb(mediaUserInfo);
 };

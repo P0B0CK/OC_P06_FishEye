@@ -1,13 +1,11 @@
-import { displayMedias, getMediaUserInfos, getPhotographerUserInfos } from "../pages/photographer.js";
-
 console.log('fonction sortMedia ici')
 
 const selectbox = document.getElementById('selected-filter');
 
-export async function sortMedia(data, likes, date, title) {
+export async function sortMedia(data) {
 
   const optionValue = selectbox.value;
-  const mediasArray = new mediasArray[data]; // tableau des medias
+  const mediasArray = data; // tableau des medias
   
   console.log(mediasArray);
   
@@ -25,14 +23,13 @@ export async function sortMedia(data, likes, date, title) {
     } else if (optionValue == 'title') {
       console.log('=> Order by title <=');
   
-      mediasArray.sort((a, b) => a.title - b.title); // Par ordre alphabétique croissant
+      mediasArray.sort((a, b) => a.title < b.title?-1:1); // Par ordre alphabétique croissant
       console.log(mediasArray);
     } else {
       return console.log('== SORT issue ==');
     }
 };
 
-selectbox.addEventListener('change', sortMedia);
 
 // // écouteur au changement d'état :
 // selectbox.addEventListener('change', (e) => {

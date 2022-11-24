@@ -4,11 +4,19 @@ export function videosFactory(data) {
     
     function getVideoDOM() {
 
+        return `<video width="350" height="300" class="mediaStyleVid">
+        <source src="assets/photographers/${photographerId}/${video}"" type=video/mp4>
+        ERROR to load file
+        </video>`;
+    }
+
+    function getVideoLbDOM() {
+
         return `<video width="350" height="300" class="mediaStyleVid" controls>
         <source src="assets/photographers/${photographerId}/${video}"" type=video/mp4>
         ERROR to load file
         </video>`;
     }
 
-    return {getVideoDOM};
+    return {getVideoDOM, getVideoLbDOM};
 }
