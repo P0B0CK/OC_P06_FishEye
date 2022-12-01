@@ -9,15 +9,17 @@
     <title>Fisheye - photographe </title>
   </head>
   <body>
-    <header>
-      <img src="assets/images/logo.png" class="logo" />
-    </header>
-    <main id="main">
+
+  <header id="header" aria-label="page principale" role="banner">
+      <a href="index.html"><img src="assets/images/logo.png" alt="Logo de Fisheye" class="logo"/></a>
+  </header>
+
+    <main id="main" role="main">
     <!-- USER PROFILE -->
-      <div class="photograph-header">
+      <div class="photograph-header" role="Profil du photographe">
       </div>
     <!-- FILTER SECTION -->
-      <div  class="filter-section">
+      <div  class="filter-section" aria-expanded="Trier la séléction">
         <label for="selected-filter">Trier par</label>
         <select id="selected-filter" name="selected-filter" aria-label="Trier les medias" tabindex="0">
           <option value="popularity" class="selected-text">Popularité</option>
@@ -27,13 +29,13 @@
       </div>
       
     <!-- MEDIA SECTION -->
-      <div class="media-section">
+      <div class="media-section" role="Folio du photographe">
       </div>
       
     </main>
 
     <!-- MODAL CONTACT -->
-    <div id="contact_modal">
+    <div id="contact_modal" role="Dialog">
 			<div class="modal">
 				<header>
           <h2 id="nameContact">Contactez-moi</h2>
@@ -58,7 +60,7 @@
 		</div>
 
     <!-- MODAL LIGHTBOX-->
-    <div id="lightbox-modal" role="dialog" aria-label="image closeup view" hidden>
+    <div id="lightbox-modal" role="Dialog" aria-label="image closeup view" hidden>
       <div class="lightbox">
         <div class="lbNavRight">
           <button class="lbSwitch lbIcons prevBtn" aria-label="Previous image"><i class="fa-sharp fa-solid fa-chevron-left"></i></button>

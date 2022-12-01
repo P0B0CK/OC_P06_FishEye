@@ -18,6 +18,9 @@ export function photographerFactory(data) {
         const article = document.createElement( 'article' );
         const avatarPicture = document.createElement( 'img' );
             avatarPicture.setAttribute("src", picture);
+        const cardDetail = document.createElement('div');
+            cardDetail.setAttribute("class", 'card-detail');
+
         const h2 = document.createElement( 'h2' );
             h2.textContent = name;
         const h3 = document.createElement( 'h3');
@@ -29,10 +32,11 @@ export function photographerFactory(data) {
         
         article.appendChild(linkPage);
             linkPage.appendChild(avatarPicture);
-        article.appendChild(h2);
-        article.appendChild(h3);
-        article.appendChild(h4);
-        article.appendChild(p).classList.add("dailyPrice");
+        article.appendChild(cardDetail);
+            cardDetail.appendChild(h2);
+            cardDetail.appendChild(h3);
+            cardDetail.appendChild(h4);
+            cardDetail.appendChild(p).classList.add("dailyPrice");
 
         return (article)
     }
