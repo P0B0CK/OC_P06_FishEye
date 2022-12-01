@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
   <head>
     <link href="css/style.css" rel="stylesheet" type="text/css" />
     <meta charset="utf-8">
@@ -35,14 +35,14 @@
     </main>
 
     <!-- MODAL CONTACT -->
-    <div id="contact_modal" role="Dialog">
+    <div id="contact_modal" role="Dialog" aria-label="Contact Modal">
 			<div class="modal">
 				<header>
           <h2 id="nameContact">Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" />
+          <img src="assets/icons/close.svg" onclick="closeModal()" alt="close"/>
         </header>
 
-				<form id="contactForm" onsubmit="" method="GET" action="photographer.html?id=${photographerId}" >
+				<form id="contactForm" onsubmit="" method="GET" action="photographer.html?id=${photographerId}" role="form">
 					<div>
 						<label for="firstname">Prénom</label>
 						<input type="text" id="firstname" name="getValue" required minlength="2">

@@ -3,7 +3,7 @@ export function imagesFactory(data) {
     
     
     function getImageDOM() {
-        return `<img src="assets/photographers/${photographerId}/${image}" class="mediaStyleImg"/>`;
+        return `<img src="assets/photographers/${photographerId}/${image}" class="mediaStyleImg" alt="${title}"/>`;
     }
 
     return {getImageDOM};

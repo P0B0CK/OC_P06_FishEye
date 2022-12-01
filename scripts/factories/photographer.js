@@ -18,6 +18,7 @@ export function photographerFactory(data) {
         const article = document.createElement( 'article' );
         const avatarPicture = document.createElement( 'img' );
             avatarPicture.setAttribute("src", picture);
+            avatarPicture.setAttribute("alt", `Avatar de ${name}`);
         const cardDetail = document.createElement('div');
             cardDetail.setAttribute("class", 'card-detail');
 
@@ -61,6 +62,7 @@ export function photographerFactory(data) {
         const avatarPicture = document.createElement( 'img' );
         avatarPicture.setAttribute("src", avatar);
         avatarPicture.setAttribute('class', 'userAvatar');
+        avatarPicture.setAttribute('alt', `${name}`);
             
             
             photographContainer.appendChild(infoMembers);
