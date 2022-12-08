@@ -62,10 +62,10 @@
     translate: -5px;
 }
 
-.lbMedia {
-    width: 100%;
-    height: 100%;
-    padding: 10px;
+.lb-media {
+    max-width: 100%;
+    max-height: 100%;
+    padding: 15px;
 }
 
 .media-player {
@@ -77,8 +77,8 @@
 }
 
 .media-player img{
-    width: auto;
-    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
     border-radius: 5px;
     object-fit: fill;
     object-position: center;
@@ -86,4 +86,12 @@
 
 .hidden-media {
     display: none;
+}
+
+.media-style-vid-lb {
+    width: 100%;
+    height: auto;
+    max-height: 100%;
+    object-fit: cover;
+    border-radius: 5px;
 }

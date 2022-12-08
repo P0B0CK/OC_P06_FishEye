@@ -69,3 +69,8 @@ form input {
     border-radius: 5px;
 }
 
+.media-style-vid {
+    object-fit: cover;
+    border-radius: 5px;
+}
+

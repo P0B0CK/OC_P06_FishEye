@@ -8,6 +8,9 @@ const lbContent = document.querySelector('.lbContent'); // container media of LB
 const prevBtn = document.querySelector('.prevBtn'); // nav of LB : PREVIOUS media
 const nextBtn = document.querySelector('.nextBtn'); // nav of LB : NEXT media
 
+const headerContent = document.querySelector('header');
+const mainContent = document.querySelector('main');
+
 
 
 
@@ -20,6 +23,10 @@ export function lightbox(data , index) {
         const lbListMedias = document.querySelectorAll('.lbMediaElt');
         lbListMedias[index].classList.remove('hidden-media'); // Show all elt
         lightboxModal.dataset.current = index; // Give index of selected elt
+
+        headerContent.style.display = "none";
+        mainContent.style.display = "none";
+        
     };
 
     return { openLightbox };
@@ -34,7 +41,7 @@ export function initLb(media) {
         const mediaContent = elt.image ? mediaImage.getImageDOM() : mediaVideo.getVideoLbDOM();
         const mediaContentTitle = elt.title;
         const lbMedia = `
-            <div class="lbMedia lbMediaElt hidden-media" data-index="${index}">
+            <div class="lb-media lbMediaElt hidden-media" data-index="${index}">
                 <div class="media-player">${mediaContent}</div>
                 <div class="media-legend"><h4 class="media-title">${mediaContentTitle}</h4></div>
             </div>`;
@@ -50,7 +57,10 @@ export function initLb(media) {
 function closeLightbox() {
     const lbListMedias = document.querySelectorAll('.lbMediaElt');
     lightboxModal.style.display = "none";
-    lbListMedias[lightboxModal.dataset.current].classList.add('hidden-media'); 
+    lbListMedias[lightboxModal.dataset.current].classList.add('hidden-media');
+    
+    headerContent.style.display = "block";
+    mainContent.style.display = "block";
 };
 
 

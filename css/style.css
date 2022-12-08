@@ -175,7 +175,8 @@ h4 {
     margin: 58px 0;
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-between;
+    justify-content: flex-start;
+    gap: 5.8%;
 }
 
 .media-card{

@@ -24,7 +24,7 @@
                     lbSwitchLeft.innerHTML = `<i class="fa-sharp fa-solid fa-chevron-left"></i>`;
 
                 const lbMedia = document.createElement("div");
-                    lbMedia.setAttribute("class", "lbMedia");
+                    lbMedia.setAttribute("class", "lb-media");
                         const MediaPlayer = document.createElement("div");
                             lbMedia.setAttribute("class", "MediaPlayer");
                         const MediaTitle = document.createElement("div");
