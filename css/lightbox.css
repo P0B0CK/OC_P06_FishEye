@@ -62,14 +62,20 @@
     translate: -5px;
 }
 
+.lbContent {
+    width: 100%;
+    height: 100%;
+}
+
 .lb-media {
     max-width: 100%;
     max-height: 100%;
+    border-radius: 5px;
     padding: 15px;
 }
 
 .media-player {
-    height: 80%;
+    height: 700px;
     border-radius: 5px;
     display: flex;
     align-items: center;
